@@ -2,8 +2,6 @@ import sys
 
 from PyQt5.QtWidgets import QApplication, QWidget
 
-from windows.main_window import MainWindow
-
 '''
     Definicion de la aplicacion, este archivo manejara la aplicacion
 '''
