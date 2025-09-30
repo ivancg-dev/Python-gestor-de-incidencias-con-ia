@@ -1,6 +1,7 @@
 import sys
 
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication
+from main_window import mainWindow
 
 '''
     Definicion de la aplicacion, este archivo manejara la aplicacion
@@ -8,9 +9,6 @@ from PyQt5.QtWidgets import QApplication, QWidget
 
 def main():
     app = QApplication(sys.argv)
-
-    main_window = QWidget()
-    main_window.show()
 
     app.exec()
 
