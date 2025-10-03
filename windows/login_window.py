@@ -1,4 +1,7 @@
 from PyQt5 import *
 
-class loginWindow(QWidget):
-    super.__init__() 
+class LoginWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        
+        self.setWindowTitle("Login")
