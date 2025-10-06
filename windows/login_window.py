@@ -27,6 +27,7 @@ class RegistroDialog(QDialog):
         '''Botones de acción'''
         boton_registrar = QPushButton("Registrar")
         boton_cancelar = QPushButton("Cancelar")
+        
 
         '''Layouts para organizar los elementos'''
         layout_usuario = QHBoxLayout()
