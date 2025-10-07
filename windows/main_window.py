@@ -20,7 +20,7 @@ class mainWindow(QWidget):
 
 
 
-        
+        '''hola'''
 
 
         self.setLayout = layout_principal
