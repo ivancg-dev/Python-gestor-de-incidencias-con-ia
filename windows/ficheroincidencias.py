@@ -1,75 +1,65 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QTextEdit, QComboBox, QPushButton
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QLineEdit, QTextEdit, QComboBox, QPushButton, QMessageBox
 from PyQt5.QtGui import QFont
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, pyqtSignal
+from database.database import add_incidencia
 
-class IncidenciaForm(QWidget):
+class IncidenciaForm(QDialog):
+    incidencia_registrada = pyqtSignal()  # ← señal para notificar que se ha registrado
+
     def __init__(self):
         super().__init__()
-
         self.setWindowTitle("Registrar Incidencia")
         self.setFixedSize(600, 500)
 
-        '''Título principal'''
-        titulo_label = QLabel("Formulario de Incidencia")
-        fuente_titulo = QFont()
-        fuente_titulo.setPointSize(20)
-        fuente_titulo.setBold(True)
-        titulo_label.setFont(fuente_titulo)
-        titulo_label.setAlignment(Qt.AlignCenter)
+        # Campos
+        self.input_titulo = QLineEdit()
+        self.input_descripcion = QTextEdit()
+        self.input_categoria = QLineEdit()
+        self.input_estado = QComboBox()
+        self.input_estado.addItems(["pendiente", "cerrado"])
+        self.input_prioridad = QComboBox()
+        self.input_prioridad.addItems(["baja", "media", "alta", "extrema"])
+        self.input_usuario_id = QLineEdit()
 
-        '''Campos de entrada'''
-        label_titulo = QLabel("Título:")
-        input_titulo = QLineEdit()
-        input_titulo.setFixedHeight(30)
-
-        label_descripcion = QLabel("Descripción:")
-        input_descripcion = QTextEdit()
-        input_descripcion.setFixedHeight(80)
-
-        label_categoria = QLabel("Categoría:")
-        input_categoria = QLineEdit()
-        input_categoria.setFixedHeight(30)
-
-        label_estado = QLabel("Estado:")
-        input_estado = QComboBox()
-        input_estado.addItems(["pendiente", "cerrado"])
-
-        label_prioridad = QLabel("Prioridad:")
-        input_prioridad = QComboBox()
-        input_prioridad.addItems(["baja", "media", "alta", "extrema"])
-
-        label_usuario_id = QLabel("ID de Usuario:")
-        input_usuario_id = QLineEdit()
-        input_usuario_id.setFixedHeight(30)
-
-        '''Botón de envío'''
         boton_enviar = QPushButton("Registrar Incidencia")
-        boton_enviar.setFixedSize(200, 40)
+        boton_enviar.clicked.connect(self.registrar_incidencia)
 
-        '''Layouts'''
-        layout_principal = QVBoxLayout()
-        layout_principal.addWidget(titulo_label)
-        layout_principal.addSpacing(30)
+        layout = QVBoxLayout()
+        layout.addWidget(QLabel("Título:"))
+        layout.addWidget(self.input_titulo)
+        layout.addWidget(QLabel("Descripción:"))
+        layout.addWidget(self.input_descripcion)
+        layout.addWidget(QLabel("Categoría:"))
+        layout.addWidget(self.input_categoria)
+        layout.addWidget(QLabel("Estado:"))
+        layout.addWidget(self.input_estado)
+        layout.addWidget(QLabel("Prioridad:"))
+        layout.addWidget(self.input_prioridad)
+        layout.addWidget(QLabel("ID de Usuario:"))
+        layout.addWidget(self.input_usuario_id)
+        layout.addWidget(boton_enviar, alignment=Qt.AlignCenter)
 
-        layout_principal.addWidget(label_titulo)
-        layout_principal.addWidget(input_titulo)
+        self.setLayout(layout)
 
-        layout_principal.addWidget(label_descripcion)
-        layout_principal.addWidget(input_descripcion)
+    def registrar_incidencia(self):
+        titulo = self.input_titulo.text().strip()
+        descripcion = self.input_descripcion.toPlainText().strip()
+        categoria = self.input_categoria.text().strip()
+        estado = self.input_estado.currentText()
+        prioridad = self.input_prioridad.currentText()
+        usuario_id = self.input_usuario_id.text().strip()
 
-        layout_principal.addWidget(label_categoria)
-        layout_principal.addWidget(input_categoria)
+        if not (titulo and categoria and usuario_id):
+            QMessageBox.warning(self, "Error", "Título, Categoría y Usuario ID son obligatorios.")
+            return
 
-        layout_principal.addWidget(label_estado)
-        layout_principal.addWidget(input_estado)
+        try:
+            usuario_id = int(usuario_id)
+        except ValueError:
+            QMessageBox.warning(self, "Error", "El ID de usuario debe ser un número.")
+            return
 
-        layout_principal.addWidget(label_prioridad)
-        layout_principal.addWidget(input_prioridad)
-
-        layout_principal.addWidget(label_usuario_id)
-        layout_principal.addWidget(input_usuario_id)
-
-        layout_principal.addStretch()
-        layout_principal.addWidget(boton_enviar, alignment=Qt.AlignCenter)
-
-        self.setLayout(layout_principal)
+        add_incidencia(titulo, descripcion, categoria, estado, prioridad, usuario_id)
+        QMessageBox.information(self, "Éxito", "Incidencia registrada correctamente.")
+        self.incidencia_registrada.emit()  # ← emitimos la señal
+        self.accept()  # ← cerramos la ventana

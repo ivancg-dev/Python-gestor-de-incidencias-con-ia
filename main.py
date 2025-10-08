@@ -19,10 +19,6 @@ class AppController:
         self.main_window = MainWindow(user_id)
         self.main_window.show()
 
-    def show_fichero(self, user_id):
-        self.ficheroincidencias = IncidenciaForm()
-        self.ficheroincidencias.show()
-
     def run(self):
         sys.exit(self.app.exec_())
 

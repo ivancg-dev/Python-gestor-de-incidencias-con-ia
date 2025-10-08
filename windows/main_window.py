@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import (
     QComboBox, QLineEdit, QTableWidget, QTableWidgetItem, QLabel
 )
 from database.database import *
+from windows.ficheroincidencias import IncidenciaForm
 
 class MainWindow(QWidget):
     def __init__(self, user_id):
@@ -54,6 +55,7 @@ class MainWindow(QWidget):
         self.prioridad_nueva.addItems(["baja", "media", "alta", "extrema"])
 
         self.btn_add = QPushButton("Agregar")
+        self.btn_add.clicked.connect(self.show_incidencias)
         self.btn_delete = QPushButton("Eliminar seleccionada")
         self.btn_delete.clicked.connect(self.delete_incidencia)
 
@@ -101,3 +103,8 @@ class MainWindow(QWidget):
             incidencia_id = int(self.table.item(fila, 0).text())
             delete_incidencia(incidencia_id)
             self.load_data()
+
+    def show_incidencias(self):
+        self.ficheroincidencias = IncidenciaForm()
+        self.ficheroincidencias.incidencia_registrada.connect(self.load_data)  # ← refresca al registrar
+        self.ficheroincidencias.show()
