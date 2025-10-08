@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import (
 )
 from database.database import *
 
-
 class MainWindow(QWidget):
     def __init__(self, user_id):
         super().__init__()
@@ -14,7 +13,7 @@ class MainWindow(QWidget):
 
         layout = QVBoxLayout()
 
-        # --- Filtros ---
+        # Filtros
         filtros = QHBoxLayout()
         filtros.addWidget(QLabel("Estado:"))
         self.estado_combo = QComboBox()
@@ -31,7 +30,7 @@ class MainWindow(QWidget):
         filtros.addWidget(self.boton_filtrar)
         layout.addLayout(filtros)
 
-        # --- Tabla ---
+        # Tabla
         self.table = QTableWidget()
         self.table.setColumnCount(7)
         self.table.setHorizontalHeaderLabels([
@@ -39,7 +38,7 @@ class MainWindow(QWidget):
         ])
         layout.addWidget(self.table)
 
-        # --- Zona de acciones ---
+        # Zona de acciones
         acciones = QHBoxLayout()
         self.titulo_input = QLineEdit()
         self.titulo_input.setPlaceholderText("Título")
@@ -55,8 +54,6 @@ class MainWindow(QWidget):
         self.prioridad_nueva.addItems(["baja", "media", "alta", "extrema"])
 
         self.btn_add = QPushButton("Agregar")
-        self.btn_add.clicked.connect(self.add_incidencia)
-
         self.btn_delete = QPushButton("Eliminar seleccionada")
         self.btn_delete.clicked.connect(self.delete_incidencia)
 
