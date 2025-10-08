@@ -17,12 +17,10 @@ class AppController:
     def show_main(self, user_id):
         self.login_window.close()
         self.main_window = MainWindow(user_id)
-        self.main_window.btn_add.clicked.connect(lambda: self.show_fichero(user_id))
         self.main_window.show()
 
     def show_fichero(self, user_id):
-        self.main_window.close()
-        self.ficheroincidencias = IncidenciaForm(user_id)
+        self.ficheroincidencias = IncidenciaForm()
         self.ficheroincidencias.show()
 
     def run(self):
