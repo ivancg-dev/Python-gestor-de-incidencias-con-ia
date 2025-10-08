@@ -1,4 +1,4 @@
-# Nivel leve
+# nivel leve
 
 El cursor del ratón se mueve con un poco de retraso.
 
@@ -400,7 +400,7 @@ El antivirus marca un archivo limpio como sospechoso.
 
 El sistema muestra aviso de “error desconocido” sin consecuencias.
 
-# Nivel medio
+# nivel medio
 
 El ordenador tarda varios minutos en iniciar el sistema operativo.
 
@@ -802,7 +802,7 @@ No puedo abrir la configuración del antivirus.
 
 El Wi-Fi no guarda los ajustes del adaptador.
 
-# Nivel grave
+# nivel grave
 
 El sistema operativo no inicia y se queda en la pantalla de carga.
 
@@ -1204,7 +1204,7 @@ El sistema muestra “critical error on startup”.
 
 El ordenador no enciende ni muestra luces indicadoras.
 
-# Nivel extremo
+# nivel extremo
 
 El ordenador no enciende ni muestra ninguna luz.
 
