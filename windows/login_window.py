@@ -11,7 +11,7 @@ class RegistroDialog(QDialog):
         '''Título de la ventana de registro'''
         titulo = QLabel("Crear cuenta")
         fuente = QFont()
-        fuente.setPointSize(20)
+        fuente.setPointSize(20) 
         fuente.setBold(True)
         titulo.setFont(fuente)
         titulo.setAlignment(Qt.AlignCenter)
