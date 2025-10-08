@@ -6,12 +6,14 @@ from database.database import *
 
 class AppController:
     def __init__(self):
-        self.app = QApplication(sys.argv)
+        self.app = QApplication(sys.argv) #Es el objeto principal que inicia y controla la aplicacion grafica
         create_db()  # Crear base de datos si no existe
 
+        #Se instancia la pantalla de login para conectar a ella
         self.login_window = LoginWindow()
+        #Cuando login devuelva success (Variable dada a la clase) se enseña el main
         self.login_window.login_success.connect(self.show_main)
-
+        #Se muestra el login al inicio
         self.login_window.show()
 
     def show_main(self, user_id):
