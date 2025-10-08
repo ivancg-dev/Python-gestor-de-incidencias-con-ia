@@ -6,8 +6,9 @@ from database.database import add_incidencia
 class IncidenciaForm(QDialog):
     incidencia_registrada = pyqtSignal()  # ← señal para notificar que se ha registrado
 
-    def __init__(self):
+    def __init__(self, user_id):
         super().__init__()
+        self.user_id = user_id
         self.setWindowTitle("Registrar Incidencia")
         self.setFixedSize(600, 500)
 
@@ -35,8 +36,6 @@ class IncidenciaForm(QDialog):
         layout.addWidget(self.input_estado)
         layout.addWidget(QLabel("Prioridad:"))
         layout.addWidget(self.input_prioridad)
-        layout.addWidget(QLabel("ID de Usuario:"))
-        layout.addWidget(self.input_usuario_id)
         layout.addWidget(boton_enviar, alignment=Qt.AlignCenter)
 
         self.setLayout(layout)
@@ -47,7 +46,7 @@ class IncidenciaForm(QDialog):
         categoria = self.input_categoria.text().strip()
         estado = self.input_estado.currentText()
         prioridad = self.input_prioridad.currentText()
-        usuario_id = self.input_usuario_id.text().strip()
+        usuario_id = self.user_id
 
         if not (titulo and categoria and usuario_id):
             QMessageBox.warning(self, "Error", "Título, Categoría y Usuario ID son obligatorios.")

@@ -59,11 +59,6 @@ class MainWindow(QWidget):
         self.btn_delete = QPushButton("Eliminar seleccionada")
         self.btn_delete.clicked.connect(self.delete_incidencia)
 
-        acciones.addWidget(self.titulo_input)
-        acciones.addWidget(self.descripcion_input)
-        acciones.addWidget(self.categoria_input)
-        acciones.addWidget(self.estado_nuevo)
-        acciones.addWidget(self.prioridad_nueva)
         acciones.addWidget(self.btn_add)
         acciones.addWidget(self.btn_delete)
 
@@ -105,6 +100,6 @@ class MainWindow(QWidget):
             self.load_data()
 
     def show_incidencias(self):
-        self.ficheroincidencias = IncidenciaForm()
+        self.ficheroincidencias = IncidenciaForm(self.user_id)
         self.ficheroincidencias.incidencia_registrada.connect(self.load_data)  # ← refresca al registrar
         self.ficheroincidencias.show()
