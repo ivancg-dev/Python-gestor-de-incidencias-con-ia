@@ -15,12 +15,15 @@ class IncidenciaForm(QDialog):
         # Campos
         self.input_titulo = QLineEdit()
         self.input_descripcion = QTextEdit()
-        self.input_categoria = QLineEdit()
+
+        # Categoría como ComboBox
+        self.input_categoria = QComboBox()
+        self.input_categoria.addItems(["hardware", "software", "otro"])
+
         self.input_estado = QComboBox()
         self.input_estado.addItems(["pendiente", "cerrado"])
         self.input_prioridad = QComboBox()
         self.input_prioridad.addItems(["baja", "media", "alta", "extrema"])
-        self.input_usuario_id = QLineEdit()
 
         boton_enviar = QPushButton("Registrar Incidencia")
         boton_enviar.clicked.connect(self.registrar_incidencia)
@@ -43,7 +46,7 @@ class IncidenciaForm(QDialog):
     def registrar_incidencia(self):
         titulo = self.input_titulo.text().strip()
         descripcion = self.input_descripcion.toPlainText().strip()
-        categoria = self.input_categoria.text().strip()
+        categoria = self.input_categoria.currentText()
         estado = self.input_estado.currentText()
         prioridad = self.input_prioridad.currentText()
         usuario_id = self.user_id
