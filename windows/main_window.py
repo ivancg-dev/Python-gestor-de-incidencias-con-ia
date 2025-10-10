@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import (
 )
 from database.database import *
 from windows.ficheroincidencias import IncidenciaForm
+from PyQt5.QtWidgets import QMessageBox
 
 class MainWindow(QWidget):
     def __init__(self, user_id):
@@ -103,3 +104,18 @@ class MainWindow(QWidget):
         self.ficheroincidencias = IncidenciaForm(self.user_id)
         self.ficheroincidencias.incidencia_registrada.connect(self.load_data)  # ← refresca al registrar
         self.ficheroincidencias.show()
+
+    def delete_incidencia(self):
+            fila = self.table.currentRow()
+            if fila >= 0:
+                incidencia_id = int(self.table.item(fila, 0).text())
+                delete_incidencia(incidencia_id)
+                self.load_data()
+                QMessageBox.information(self, "Eliminación exitosa", "La incidencia ha sido eliminada correctamente.")
+            else:
+                QMessageBox.warning(self, "Sin selección", "Por favor, selecciona una incidencia para eliminar.")
+
+
+
+
+

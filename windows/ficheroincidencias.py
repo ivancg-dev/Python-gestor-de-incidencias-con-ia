@@ -48,8 +48,8 @@ class IncidenciaForm(QDialog):
         prioridad = self.input_prioridad.currentText()
         usuario_id = self.user_id
 
-        if not (titulo and categoria and usuario_id):
-            QMessageBox.warning(self, "Error", "Título, Categoría y Usuario ID son obligatorios.")
+        if not (titulo and categoria):
+            QMessageBox.warning(self, "Error", "Título y Categoría son obligatorios.")
             return
 
         try:
