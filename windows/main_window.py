@@ -1,9 +1,11 @@
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
     QComboBox, QLineEdit, QTableWidget, QTableWidgetItem,
-    QLabel, QMessageBox, QSizePolicy
+    QLabel, QMessageBox
 )
-from database.database import *
+from collections import Counter
+import matplotlib.pyplot as plt
+from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados
 from windows.ficheroincidencias import IncidenciaForm
 
 class MainWindow(QWidget):
@@ -52,6 +54,7 @@ class MainWindow(QWidget):
         filtros_derecha = QHBoxLayout()
         self.boton_graficas = QPushButton("Gráficas")
         self.boton_graficas.setFixedWidth(100)
+        self.boton_graficas.clicked.connect(self.mostrar_grafica_estado)
         filtros_derecha.addStretch()
         filtros_derecha.addWidget(self.boton_graficas)
 
@@ -91,10 +94,15 @@ class MainWindow(QWidget):
         self.prioridad_nueva.addItems(["baja", "media", "alta", "extrema"])
 
         self.btn_add = QPushButton("Agregar")
-        self.btn_add.clicked.connect(self.show_incidencias)
+        self.btn_add.clicked.connect(self.add_incidencia)
         self.btn_delete = QPushButton("Eliminar seleccionada")
         self.btn_delete.clicked.connect(self.delete_incidencia)
 
+        acciones.addWidget(self.titulo_input)
+        acciones.addWidget(self.descripcion_input)
+        acciones.addWidget(self.categoria_input)
+        acciones.addWidget(self.estado_nuevo)
+        acciones.addWidget(self.prioridad_nueva)
         acciones.addWidget(self.btn_add)
         acciones.addWidget(self.btn_delete)
 
@@ -102,6 +110,7 @@ class MainWindow(QWidget):
 
         self.setLayout(layout)
         self.load_data()
+
 
     def load_data(self):
         estado = self.estado_combo.currentText()
@@ -142,3 +151,22 @@ class MainWindow(QWidget):
         self.ficheroincidencias = IncidenciaForm(self.user_id)
         self.ficheroincidencias.incidencia_registrada.connect(self.load_data)
         self.ficheroincidencias.show()
+
+    def mostrar_grafica_estado(self):
+        datos = get_titulos_y_estados()
+
+        if not datos:
+            QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
+            return
+
+        estados = [estado for _, estado in datos]
+        conteo_estados = Counter(estados)
+
+        etiquetas, valores = zip(*sorted(conteo_estados.items(), key=lambda x: x[1], reverse=True))
+
+        colores = plt.get_cmap('Set3').colors
+        plt.figure(figsize=(6, 6))
+        plt.pie(valores, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=colores)
+        plt.title('Distribución de Incidencias por Estado')
+        plt.axis('equal')
+        plt.show()
