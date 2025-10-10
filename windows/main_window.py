@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
-    QComboBox, QLineEdit, QTableWidget, QTableWidgetItem, QLabel
+    QComboBox, QLineEdit, QTableWidget, QTableWidgetItem,
+    QLabel, QMessageBox, QSizePolicy
 )
 from database.database import *
 from windows.ficheroincidencias import IncidenciaForm
-from PyQt5.QtWidgets import QMessageBox
 
 class MainWindow(QWidget):
     def __init__(self, user_id):
@@ -16,21 +16,54 @@ class MainWindow(QWidget):
         layout = QVBoxLayout()
 
         # Filtros
-        filtros = QHBoxLayout()
-        filtros.addWidget(QLabel("Estado:"))
+        filtros_container = QWidget()
+        filtros_layout = QHBoxLayout()
+        filtros_layout.setContentsMargins(20, 20, 20, 10)
+        filtros_layout.setSpacing(10)
+
+        # Sub-layout izquierdo para filtros
+        filtros_izquierda = QHBoxLayout()
+
+        label_estado = QLabel("Estado:")
+        label_estado.setMinimumWidth(50)
         self.estado_combo = QComboBox()
         self.estado_combo.addItems(["Todos", "pendiente", "cerrado"])
-        filtros.addWidget(self.estado_combo)
+        self.estado_combo.setFixedWidth(110)
 
-        filtros.addWidget(QLabel("Prioridad:"))
+        label_prioridad = QLabel("Prioridad:")
+        label_prioridad.setMinimumWidth(60)
         self.prioridad_combo = QComboBox()
         self.prioridad_combo.addItems(["Todos", "baja", "media", "alta", "extrema"])
-        filtros.addWidget(self.prioridad_combo)
+        self.prioridad_combo.setFixedWidth(110)
 
         self.boton_filtrar = QPushButton("Filtrar")
+        self.boton_filtrar.setFixedWidth(90)
         self.boton_filtrar.clicked.connect(self.load_data)
-        filtros.addWidget(self.boton_filtrar)
-        layout.addLayout(filtros)
+
+        filtros_izquierda.addWidget(label_estado)
+        filtros_izquierda.addWidget(self.estado_combo)
+        filtros_izquierda.addSpacing(15)
+        filtros_izquierda.addWidget(label_prioridad)
+        filtros_izquierda.addWidget(self.prioridad_combo)
+        filtros_izquierda.addSpacing(10)
+        filtros_izquierda.addWidget(self.boton_filtrar)
+
+        # Sub-layout derecho para gráficas
+        filtros_derecha = QHBoxLayout()
+        self.boton_graficas = QPushButton("Gráficas")
+        self.boton_graficas.setFixedWidth(100)
+        filtros_derecha.addStretch()
+        filtros_derecha.addWidget(self.boton_graficas)
+
+        filtros_layout.addLayout(filtros_izquierda)
+        filtros_layout.addStretch()
+        filtros_layout.addLayout(filtros_derecha)
+
+        filtros_container.setLayout(filtros_layout)
+        layout.addWidget(filtros_container)
+
+        # Espacio entre secciones
+        layout.addSpacing(10)
 
         # Tabla
         self.table = QTableWidget()
@@ -39,6 +72,8 @@ class MainWindow(QWidget):
             "ID", "Título", "Descripción", "Categoría", "Estado", "Prioridad", "Fecha creación"
         ])
         layout.addWidget(self.table)
+
+        layout.addSpacing(10)
 
         # Zona de acciones
         acciones = QHBoxLayout()
@@ -99,23 +134,11 @@ class MainWindow(QWidget):
             incidencia_id = int(self.table.item(fila, 0).text())
             delete_incidencia(incidencia_id)
             self.load_data()
+            QMessageBox.information(self, "Eliminación exitosa", "La incidencia ha sido eliminada correctamente.")
+        else:
+            QMessageBox.warning(self, "Sin selección", "Por favor, selecciona una incidencia para eliminar.")
 
     def show_incidencias(self):
         self.ficheroincidencias = IncidenciaForm(self.user_id)
-        self.ficheroincidencias.incidencia_registrada.connect(self.load_data)  # ← refresca al registrar
+        self.ficheroincidencias.incidencia_registrada.connect(self.load_data)
         self.ficheroincidencias.show()
-
-    def delete_incidencia(self):
-            fila = self.table.currentRow()
-            if fila >= 0:
-                incidencia_id = int(self.table.item(fila, 0).text())
-                delete_incidencia(incidencia_id)
-                self.load_data()
-                QMessageBox.information(self, "Eliminación exitosa", "La incidencia ha sido eliminada correctamente.")
-            else:
-                QMessageBox.warning(self, "Sin selección", "Por favor, selecciona una incidencia para eliminar.")
-
-
-
-
-
