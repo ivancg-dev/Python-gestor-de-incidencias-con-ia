@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
+import joblib
 
 # --- Descargar stopwords si no están ---
 nltk.download('stopwords', quiet=True)
@@ -64,7 +65,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # --- Entrenamiento del modelo ---
-model = SVC(kernel='linear', C=1.0, random_state=42)
+model = SVC(kernel='linear', C=1.0, class_weight='balanced', random_state=42)
 model.fit(X_train, y_train)
 
 # --- Evaluación ---
@@ -75,9 +76,44 @@ print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
 print("\n📊 Clasificación detallada:")
 print(classification_report(y_test, y_pred, zero_division=0))
 
-# --- Ejemplo de uso ---
-text_example = "El ordenador se apaga inesperadamente cuando intento iniciar un programa."
-text_vect = vectorizer.transform([text_example])
-predicted_category = model.predict(text_vect)[0]
+# --- Guardar modelo y vectorizador para usarlos desde la app ---
+model_path = os.path.join(BASE_DIR, "modelo_svm.pkl")
+vectorizer_path = os.path.join(BASE_DIR, "vectorizer.pkl")
 
-print(f"\n🔍 Predicción para la incidencia:\n'{text_example}' → {predicted_category.upper()}")
+joblib.dump(model, model_path)
+joblib.dump(vectorizer, vectorizer_path)
+
+print(f"\n💾 Modelo guardado en: {model_path}")
+print(f"💾 Vectorizador guardado en: {vectorizer_path}")
+
+# ==============================================================
+# === FUNCIÓN PARA CLASIFICAR TEXTO DESDE OTROS MÓDULOS (IA) ===
+# ==============================================================
+
+def predecir_gravedad(texto: str) -> str:
+    """
+    Clasifica un texto de incidencia y devuelve una categoría:
+    'leve', 'medio', 'grave' o 'extremo'.
+
+    Si el texto es muy corto o hay error, devuelve 'leve' por defecto.
+    """
+    texto = texto.strip()
+
+    # Si el texto es muy corto o vacío → leve
+    if len(texto) < 3 or len(texto.split()) < 2:
+        return "leve"
+
+    try:
+        # Vectorizar texto y predecir
+        texto_vect = vectorizer.transform([texto])
+        categoria = model.predict(texto_vect)[0]
+        return categoria
+    except Exception as e:
+        print(f"⚠️ Error en la predicción: {e}")
+        return "leve"
+
+# --- Ejemplo de uso directo ---
+if __name__ == "__main__":
+    ejemplo = "El ordenador se apaga inesperadamente cuando intento iniciar un programa."
+    categoria = predecir_gravedad(ejemplo)
+    print(f"\n🔍 Ejemplo de predicción:\n'{ejemplo}' → {categoria.upper()}")
