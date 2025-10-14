@@ -1,7 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 from windows.login_window import LoginWindow
-from windows.ficheroincidencias import IncidenciaForm
 from windows.main_window import MainWindow
 from database.database import *
 
