@@ -89,6 +89,40 @@ def get_incidencias(estado=None, prioridad=None):
     return data
 
 
+def get_titulos_y_prioridades(estado=None):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    sql = """SELECT titulo, prioridad FROM incidencias WHERE 1=1"""
+    params = []
+
+    if estado and estado != "Todos":
+        sql += " AND estado=?"
+        params.append(estado)
+
+    cursor.execute(sql, params)
+    data = cursor.fetchall()
+    conn.close()
+    return data
+
+
+def get_titulos_y_estados(estado=None):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    sql = """SELECT titulo, estado FROM incidencias WHERE 1=1"""
+    params = []
+
+    if estado and estado != "Todos":
+        sql += " AND estado=?"
+        params.append(estado)
+
+    cursor.execute(sql, params)
+    data = cursor.fetchall()
+    conn.close()
+    return data
+
+
 def add_incidencia(titulo, descripcion, categoria, estado, prioridad, usuario_id):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
@@ -107,4 +141,4 @@ def delete_incidencia(incidencia_id):
     cursor = conn.cursor()
     cursor.execute("DELETE FROM incidencias WHERE id=?", (incidencia_id,))
     conn.commit()
-    conn.close()
+    conn.close()  # ✅ corregido: ya no hay texto sin comentar

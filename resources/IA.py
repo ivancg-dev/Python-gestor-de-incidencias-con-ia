@@ -90,7 +90,7 @@ print(f"💾 Vectorizador guardado en: {vectorizer_path}")
 # === FUNCIÓN PARA CLASIFICAR TEXTO DESDE OTROS MÓDULOS (IA) ===
 # ==============================================================
 
-def predecir_gravedad(texto: str) -> str:
+def predecir_categoria(texto: str) -> str:
     """
     Clasifica un texto de incidencia y devuelve una categoría:
     'leve', 'medio', 'grave' o 'extremo'.

@@ -7,7 +7,7 @@ from PyQt5.QtCore import Qt, pyqtSignal
 from database.database import add_incidencia
 
 # ✅ Importamos la función de predicción desde el módulo IA
-from IA import predecir_categoria
+from resources.IA import predecir_categoria
 
 
 class IncidenciaForm(QDialog):
