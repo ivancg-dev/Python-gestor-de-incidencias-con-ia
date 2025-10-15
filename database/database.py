@@ -21,7 +21,7 @@ def create_db():
         descripcion TEXT NOT NULL,
         categoria TEXT NOT NULL,
         estado TEXT CHECK(estado IN ('pendiente', 'cerrado')) DEFAULT 'pendiente',
-        prioridad TEXT CHECK(prioridad IN ('baja', 'media', 'alta', 'extrema')),
+        prioridad TEXT CHECK(prioridad IN ('leve', 'medio', 'grave', 'extremo')),
         usuario_id INTEGER,
         fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         fecha_resolucion TIMESTAMP DEFAULT NULL,
