@@ -31,13 +31,13 @@ class IncidenciaForm(QDialog):
 
         # --- Categoría como ComboBox ---
         self.input_categoria = QComboBox()
-        self.input_categoria.addItems(["leve", "medio", "grave", "extremo"])
+        self.input_categoria.addItems(["hardware","software"])
 
         self.input_estado = QComboBox()
         self.input_estado.addItems(["pendiente", "cerrado"])
 
         self.input_prioridad = QComboBox()
-        self.input_prioridad.addItems(["baja", "media", "alta", "extrema"])
+        self.input_prioridad.addItems(["leve", "medio", "grave", "extremo"])
 
         boton_enviar = QPushButton("Registrar Incidencia")
         boton_enviar.clicked.connect(self.registrar_incidencia)
@@ -72,9 +72,9 @@ class IncidenciaForm(QDialog):
         categoria_predicha = predecir_categoria(texto)
 
         # Actualizar comboBox
-        index = self.input_categoria.findText(categoria_predicha)
+        index = self.input_prioridad.findText(categoria_predicha)
         if index != -1:
-            self.input_categoria.setCurrentIndex(index)
+            self.input_prioridad.setCurrentIndex(index)
 
         # Cambiar color y texto del label
         colores = {
