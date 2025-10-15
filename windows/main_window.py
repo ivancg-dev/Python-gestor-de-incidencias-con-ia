@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (
 )
 from collections import Counter
 import matplotlib.pyplot as plt
-from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados
+from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados, get_titulos_y_prioridades
 from windows.ficheroincidencias import IncidenciaForm
 
 class MainWindow(QWidget):
@@ -50,11 +50,11 @@ class MainWindow(QWidget):
         filtros_izquierda.addSpacing(10)
         filtros_izquierda.addWidget(self.boton_filtrar)
 
-        # Sub-layout derecho para gráficas
+        # Sub-layout derecho para grafico circular
         filtros_derecha = QHBoxLayout()
-        self.boton_graficas = QPushButton("Gráficas")
+        self.boton_graficas = QPushButton("Gráfica circular")
         self.boton_graficas.setFixedWidth(100)
-        self.boton_graficas.clicked.connect(self.mostrar_grafica_estado)
+        self.boton_graficas.clicked.connect(self.mostrar_grafica_estado_1)
         filtros_derecha.addStretch()
         filtros_derecha.addWidget(self.boton_graficas)
 
@@ -64,6 +64,22 @@ class MainWindow(QWidget):
 
         filtros_container.setLayout(filtros_layout)
         layout.addWidget(filtros_container)
+
+         # Sub-layout derecho para grafico de barras
+        filtros_derecha = QHBoxLayout()
+        self.boton_graficas = QPushButton("Gráfica de barras")
+        self.boton_graficas.setFixedWidth(130)
+        self.boton_graficas.clicked.connect(self.mostrar_grafica_estado_2)
+        filtros_derecha.addStretch()
+        filtros_derecha.addWidget(self.boton_graficas)
+
+        filtros_layout.addLayout(filtros_izquierda)
+        filtros_layout.addStretch()
+        filtros_layout.addLayout(filtros_derecha)
+
+        filtros_container.setLayout(filtros_layout)
+        layout.addWidget(filtros_container)
+
 
         # Espacio entre secciones
         layout.addSpacing(10)
@@ -135,7 +151,7 @@ class MainWindow(QWidget):
         self.ficheroincidencias.incidencia_registrada.connect(self.load_data)
         self.ficheroincidencias.show()
 
-    def mostrar_grafica_estado(self):
+    def mostrar_grafica_estado_1(self):
         datos = get_titulos_y_estados()
 
         if not datos:
@@ -152,6 +168,36 @@ class MainWindow(QWidget):
         plt.pie(valores, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=colores)
         plt.title('Distribución de Incidencias por Estado')
         plt.axis('equal')
+        plt.show()
+
+    def mostrar_grafica_estado_2(self):
+        datos = get_titulos_y_prioridades()
+
+        if not datos:
+            QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
+            return
+
+        titulos = [fila[0] for fila in datos]
+        prioridades = [fila[1] for fila in datos]
+
+        prioridad_valores = {
+            "baja": 1,
+            "media": 2,
+            "alta": 3,
+           "extrema": 4
+        }
+        valores = [prioridad_valores.get(p.lower(), 0) for p in prioridades]
+
+        plt.figure(figsize=(10, 6))
+        plt.bar(titulos, valores, color="skyblue", edgecolor="black")
+
+        plt.title("Prioridad de Incidencias", fontsize=14, fontweight='bold')
+        plt.xlabel("Título de la incidencia", fontsize=12)
+        plt.ylabel("Nivel de prioridad (1=baja, 4=extrema)", fontsize=12)
+        plt.xticks(rotation=45, ha="right")
+        plt.yticks([1, 2, 3, 4], ["Baja", "Media", "Alta", "Extrema"])
+
+        plt.tight_layout()
         plt.show()
 
 
