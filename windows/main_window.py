@@ -3,9 +3,10 @@ from PyQt5.QtWidgets import (
     QComboBox, QLineEdit, QTableWidget, QTableWidgetItem,
     QLabel, QMessageBox
 )
+from PyQt5.QtCore import Qt
 from collections import Counter
 import matplotlib.pyplot as plt
-from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados, get_titulos_y_prioridades
+from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados
 from windows.ficheroincidencias import IncidenciaForm
 
 class MainWindow(QWidget):
@@ -23,9 +24,7 @@ class MainWindow(QWidget):
         filtros_layout.setContentsMargins(20, 20, 20, 10)
         filtros_layout.setSpacing(10)
 
-        # Sub-layout izquierdo para filtros
         filtros_izquierda = QHBoxLayout()
-
         label_estado = QLabel("Estado:")
         label_estado.setMinimumWidth(50)
         self.estado_combo = QComboBox()
@@ -50,7 +49,7 @@ class MainWindow(QWidget):
         filtros_izquierda.addSpacing(10)
         filtros_izquierda.addWidget(self.boton_filtrar)
 
-        # Sub-layout derecho para grafico circular
+        # Sub-layout derecho para gráficas
         filtros_derecha = QHBoxLayout()
         self.boton_graficas = QPushButton("Gráfica circular")
         self.boton_graficas.setFixedWidth(100)
@@ -80,7 +79,6 @@ class MainWindow(QWidget):
         filtros_container.setLayout(filtros_layout)
         layout.addWidget(filtros_container)
 
-
         # Espacio entre secciones
         layout.addSpacing(10)
 
@@ -91,36 +89,38 @@ class MainWindow(QWidget):
             "ID", "Título", "Descripción", "Categoría", "Estado", "Prioridad", "Fecha creación"
         ])
         layout.addWidget(self.table)
-
         layout.addSpacing(10)
 
-        # Zona de acciones
+        # Acciones
         acciones = QHBoxLayout()
-
         self.btn_add = QPushButton("Agregar")
         self.btn_add.clicked.connect(self.show_incidencias)
+
+        self.btn_toggle_estado = QPushButton("Cambiar estado")
+        self.btn_toggle_estado.clicked.connect(self.toggle_estado)
+
         self.btn_delete = QPushButton("Eliminar seleccionada")
         self.btn_delete.clicked.connect(self.delete_incidencia)
 
         acciones.addWidget(self.btn_add)
+        acciones.addWidget(self.btn_toggle_estado)
         acciones.addWidget(self.btn_delete)
 
         layout.addLayout(acciones)
-
         self.setLayout(layout)
         self.load_data()
-
 
     def load_data(self):
         estado = self.estado_combo.currentText()
         prioridad = self.prioridad_combo.currentText()
-
         incidencias = get_incidencias(estado, prioridad)
         self.table.setRowCount(len(incidencias))
 
         for row, inc in enumerate(incidencias):
             for col, valor in enumerate(inc):
-                self.table.setItem(row, col, QTableWidgetItem(str(valor)))
+                item = QTableWidgetItem(str(valor))
+                item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                self.table.setItem(row, col, item)
 
     def add_incidencia(self):
         titulo = self.titulo_input.text()
@@ -146,6 +146,18 @@ class MainWindow(QWidget):
         else:
             QMessageBox.warning(self, "Sin selección", "Por favor, selecciona una incidencia para eliminar.")
 
+    def toggle_estado(self):
+        fila = self.table.currentRow()
+        if fila >= 0:
+            incidencia_id = int(self.table.item(fila, 0).text())
+            estado_actual = self.table.item(fila, 4).text()
+            nuevo_estado = "cerrado" if estado_actual == "pendiente" else "pendiente"
+            update_estado_incidencia(incidencia_id, nuevo_estado)
+            self.load_data()
+            QMessageBox.information(self, "Estado actualizado", f"Estado cambiado a '{nuevo_estado}'.")
+        else:
+            QMessageBox.warning(self, "Sin selección", "Selecciona una incidencia para cambiar su estado.")
+
     def show_incidencias(self):
         self.ficheroincidencias = IncidenciaForm(self.user_id)
         self.ficheroincidencias.incidencia_registrada.connect(self.load_data)
@@ -153,14 +165,12 @@ class MainWindow(QWidget):
 
     def mostrar_grafica_estado_1(self):
         datos = get_titulos_y_estados()
-
         if not datos:
             QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
             return
 
         estados = [estado for _, estado in datos]
         conteo_estados = Counter(estados)
-
         etiquetas, valores = zip(*sorted(conteo_estados.items(), key=lambda x: x[1], reverse=True))
 
         colores = plt.get_cmap('Set3').colors
@@ -168,36 +178,6 @@ class MainWindow(QWidget):
         plt.pie(valores, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=colores)
         plt.title('Distribución de Incidencias por Estado')
         plt.axis('equal')
-        plt.show()
-
-    def mostrar_grafica_estado_2(self):
-        datos = get_titulos_y_prioridades()
-
-        if not datos:
-            QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
-            return
-
-        titulos = [fila[0] for fila in datos]
-        prioridades = [fila[1] for fila in datos]
-
-        prioridad_valores = {
-            "baja": 1,
-            "media": 2,
-            "alta": 3,
-           "extrema": 4
-        }
-        valores = [prioridad_valores.get(p.lower(), 0) for p in prioridades]
-
-        plt.figure(figsize=(10, 6))
-        plt.bar(titulos, valores, color="skyblue", edgecolor="black")
-
-        plt.title("Prioridad de Incidencias", fontsize=14, fontweight='bold')
-        plt.xlabel("Título de la incidencia", fontsize=12)
-        plt.ylabel("Nivel de prioridad (1=baja, 4=extrema)", fontsize=12)
-        plt.xticks(rotation=45, ha="right")
-        plt.yticks([1, 2, 3, 4], ["Baja", "Media", "Alta", "Extrema"])
-
-        plt.tight_layout()
         plt.show()
 
 
