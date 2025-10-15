@@ -146,7 +146,7 @@ def delete_incidencia(incidencia_id):
 
 def update_estado_incidencia(incidencia_id, nuevo_estado):
     import sqlite3
-    conn = sqlite3.connect("tu_base_de_datos.db")
+    conn = sqlite3.connect("incidencias_app.db")
     cursor = conn.cursor()
     cursor.execute("UPDATE incidencias SET estado = ? WHERE id = ?", (nuevo_estado, incidencia_id))
     conn.commit()
