@@ -142,3 +142,13 @@ def delete_incidencia(incidencia_id):
     cursor.execute("DELETE FROM incidencias WHERE id=?", (incidencia_id,))
     conn.commit()
     conn.close()  # ✅ corregido: ya no hay texto sin comentar
+
+
+def update_estado_incidencia(incidencia_id, nuevo_estado):
+    import sqlite3
+    conn = sqlite3.connect("tu_base_de_datos.db")
+    cursor = conn.cursor()
+    cursor.execute("UPDATE incidencias SET estado = ? WHERE id = ?", (nuevo_estado, incidencia_id))
+    conn.commit()
+    conn.close()
+
