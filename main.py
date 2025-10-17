@@ -1,21 +1,26 @@
 import sys
-
 from PyQt5.QtWidgets import QApplication
-from windows.main_window import mainWindow
+from windows.login_window import LoginWindow
+from windows.main_window import MainWindow
+from database.database import *
 
-'''
-    Definicion de la aplicacion, este archivo manejara la aplicacion
-'''
+class AppController:
+    def __init__(self):
+        self.app = QApplication(sys.argv)
+        create_db()
 
-def main():
-    app = QApplication(sys.argv)
+        self.login_window = LoginWindow()
+        self.login_window.login_success.connect(self.show_main)
+        self.login_window.show()
 
-    main_window = mainWindow()
+    def show_main(self, user_id):
+        self.login_window.close()
+        self.main_window = MainWindow(user_id)
+        self.main_window.show()
 
-    main_window.show()
-
-    sys.exit(app.exec_() )
+    def run(self):
+        sys.exit(self.app.exec_())
 
 if __name__ == "__main__":
-    main()
-
+    app = AppController()
+    app.run()

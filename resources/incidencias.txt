@@ -1,0 +1,1607 @@
+# nivel leve
+
+El cursor del ratón se mueve con un poco de retraso.
+
+El fondo de pantalla se cambia solo a veces.
+
+No puedo ajustar el brillo de la pantalla correctamente.
+
+El teclado tarda un segundo en responder.
+
+El reloj del sistema se desconfigura de vez en cuando.
+
+El sonido del inicio de Windows no se escucha.
+
+No encuentro el icono del volumen en la barra de tareas.
+
+El Bluetooth se desconecta al reiniciar.
+
+El Wi-Fi tarda un poco en conectarse.
+
+El navegador abre lento la primera vez.
+
+El ratón inalámbrico pierde conexión de forma intermitente.
+
+El touchpad no responde al hacer doble toque.
+
+La pantalla de bloqueo tarda unos segundos más de lo normal.
+
+Aparecen notificaciones molestas del antivirus.
+
+No puedo cambiar el idioma del teclado.
+
+El protector de pantalla no se activa.
+
+El ventilador hace un pequeño ruido constante.
+
+La papelera de reciclaje no actualiza el icono.
+
+No puedo conectar mi teléfono por USB.
+
+El navegador guarda mal las contraseñas.
+
+La batería parece descargarse un poco más rápido.
+
+A veces el puntero desaparece momentáneamente.
+
+El fondo oscuro de las aplicaciones no se mantiene.
+
+El altavoz izquierdo suena un poco más bajo.
+
+El explorador de archivos tarda en mostrar las carpetas.
+
+El icono del antivirus desapareció del área de notificación.
+
+Aparecen ventanas emergentes de actualización sin sentido.
+
+No puedo cambiar el idioma del sistema.
+
+El micrófono se activa solo en algunas apps.
+
+Se pierde la configuración de fondo de escritorio al reiniciar.
+
+El reloj se adelanta unos minutos solo.
+
+No se guardan las preferencias de sonido.
+
+El clic derecho del ratón falla a veces.
+
+La cámara web se enciende sola.
+
+El Wi-Fi muestra señal débil aunque esté cerca del router.
+
+El navegador se queda en blanco unos segundos al abrir.
+
+No puedo acceder al historial del navegador.
+
+El modo avión no se desactiva de inmediato.
+
+Los iconos del escritorio cambian de posición.
+
+Aparece un pequeño parpadeo en la pantalla.
+
+La barra de tareas se oculta sola sin motivo.
+
+El sistema pide contraseña aunque desactivé esa opción.
+
+El Bluetooth no detecta mis auriculares.
+
+El ratón óptico no prende la luz roja.
+
+El sonido se corta brevemente al reproducir música.
+
+El navegador no recuerda las pestañas abiertas.
+
+No se guarda la conexión Wi-Fi automáticamente.
+
+El antivirus tarda demasiado en iniciar.
+
+Aparecen mensajes de “dispositivo no reconocido” al conectar USB.
+
+El teclado numérico no responde.
+
+El clic del ratón suena diferente.
+
+El cursor salta de línea en Word sin tocar nada.
+
+El volumen se ajusta solo.
+
+El calendario del sistema no se sincroniza.
+
+El modo nocturno no se activa a la hora programada.
+
+Los accesos directos del escritorio desaparecen.
+
+El explorador de archivos se cierra inesperadamente.
+
+El touchpad no reconoce gestos multitáctiles.
+
+No se puede cambiar el fondo de pantalla.
+
+El brillo de la pantalla parpadea.
+
+La cámara se ve con un poco de desenfoque.
+
+El reloj del sistema se congela.
+
+El modo ahorro de energía no funciona.
+
+El Wi-Fi muestra “sin internet” pero luego se corrige.
+
+El icono de batería no muestra el porcentaje.
+
+Los auriculares con cable no se detectan.
+
+Aparece un mensaje de error al cerrar una app.
+
+El puntero se mueve solo un poco.
+
+El sistema cambia el idioma del teclado sin aviso.
+
+El antivirus muestra una falsa alerta de amenaza.
+
+No se actualiza el widget del clima.
+
+El botón de inicio tarda en responder.
+
+El reloj se desincroniza al reiniciar.
+
+La pantalla se queda en negro al salir del modo reposo.
+
+El micrófono tiene ruido leve de fondo.
+
+El modo silencio se activa solo.
+
+El navegador pide permiso cada vez para usar el micrófono.
+
+La cámara tarda en encenderse.
+
+El Bluetooth no muestra el nombre correcto del dispositivo.
+
+El sistema tarda en apagar.
+
+No puedo eliminar un acceso directo.
+
+La papelera no vacía los archivos.
+
+La función de copiar y pegar no responde.
+
+El teclado cambia a inglés sin motivo.
+
+El explorador abre doble ventana al hacer clic.
+
+El cursor se queda en forma de “reloj” por segundos.
+
+El sonido se escucha distorsionado a bajo volumen.
+
+No se guarda la configuración de pantalla extendida.
+
+El sistema solicita actualización pero no descarga.
+
+El Wi-Fi muestra “limitado” brevemente.
+
+Aparecen errores leves al cerrar sesión.
+
+El ratón se mueve erráticamente.
+
+El navegador se queda congelado un instante.
+
+El sistema muestra mensajes de “espacio casi lleno” falsos.
+
+El reloj no cambia al horario de verano.
+
+El fondo de pantalla aparece estirado.
+
+El sonido de inicio desapareció.
+
+El icono de red desaparece.
+
+No puedo eliminar un archivo temporal.
+
+El sistema abre dos veces la misma aplicación.
+
+El modo suspensión no activa la pantalla.
+
+El botón de encendido se siente lento.
+
+El cursor parpadea más rápido de lo normal.
+
+La cámara se invierte horizontalmente.
+
+El altavoz produce un leve zumbido.
+
+El sistema muestra advertencia de espacio aunque hay suficiente.
+
+El explorador muestra duplicadas las unidades.
+
+El reloj no se actualiza automáticamente.
+
+No puedo fijar aplicaciones a la barra de tareas.
+
+El modo ahorro se desactiva solo.
+
+El sonido de notificación no se reproduce.
+
+El antivirus pide reinicio tras actualizar.
+
+La conexión Wi-Fi se desconecta brevemente.
+
+El brillo se ajusta solo sin tocar nada.
+
+El cursor se ralentiza tras conectar USB.
+
+El teclado no reconoce algunos caracteres especiales.
+
+Aparece error “controlador no firmado”.
+
+El sistema pide permisos cada vez para abrir la misma app.
+
+El volumen no se ajusta con el teclado.
+
+El fondo de pantalla se vuelve negro.
+
+El reloj muestra la hora incorrecta tras suspender.
+
+El antivirus no reconoce la licencia.
+
+El sistema se despierta solo del modo suspensión.
+
+El navegador se reinicia sin cerrar pestañas.
+
+El touchpad no detecta clics suaves.
+
+Los iconos aparecen pixelados.
+
+La impresora tarda en aparecer en la lista.
+
+El puntero se desplaza solo al escribir.
+
+El Wi-Fi olvida la contraseña.
+
+El brillo máximo se reduce.
+
+El modo oscuro no aplica en todas las apps.
+
+El sonido se corta al cambiar de aplicación.
+
+La barra de tareas parpadea.
+
+El sistema muestra notificaciones antiguas.
+
+El antivirus se desactiva solo unos segundos.
+
+El reloj se reinicia al apagar.
+
+El micrófono deja de funcionar tras reiniciar.
+
+La cámara muestra una imagen congelada.
+
+El navegador abre en pantalla pequeña.
+
+El sonido de clic desapareció.
+
+El Bluetooth muestra dispositivos antiguos.
+
+El teclado no ilumina las teclas.
+
+El sistema muestra advertencias sin error real.
+
+El Wi-Fi cambia de red automáticamente.
+
+No puedo borrar archivos temporales.
+
+El antivirus tarda en actualizar.
+
+El brillo automático no responde.
+
+El ratón no se mueve suave.
+
+El explorador abre lento solo al principio.
+
+El volumen se ajusta de forma irregular.
+
+La pantalla tarda en encender.
+
+Los iconos se reordenan solos.
+
+El reloj se atrasa segundos.
+
+El antivirus notifica detección falsa.
+
+El sistema no guarda preferencias de energía.
+
+La cámara muestra pantalla negra por segundos.
+
+El Wi-Fi cambia de red sin preguntar.
+
+El altavoz se apaga solo.
+
+El cursor no aparece tras reiniciar.
+
+La pantalla parpadea al conectar el cargador.
+
+El micrófono deja de captar voz brevemente.
+
+El brillo se reinicia tras suspender.
+
+El antivirus solicita reinicio sin necesidad.
+
+El sistema tarda en arrancar un poco más.
+
+El teclado se bloquea por segundos.
+
+El explorador tarda en abrir el menú contextual.
+
+El Wi-Fi muestra señal débil momentáneamente.
+
+El cursor se mueve solo en esquinas.
+
+La cámara se congela tras tomar foto.
+
+El volumen se baja sin aviso.
+
+El antivirus muestra mensajes repetidos.
+
+El ratón deja de moverse al conectar otro dispositivo USB.
+
+El brillo cambia tras conectar HDMI.
+
+El sistema muestra pantalla negra al cerrar tapa.
+
+El reloj se sincroniza mal.
+
+El Wi-Fi pide contraseña cada vez.
+
+El sonido se apaga al conectar auriculares.
+
+La cámara se muestra girada 90 grados.
+
+El cursor no aparece en algunas apps.
+
+El antivirus bloquea una página segura.
+
+El teclado repite letras sin querer.
+
+El fondo de pantalla no se guarda.
+
+El Wi-Fi desconecta al suspender.
+
+El navegador muestra error de certificado temporal.
+
+La cámara no cambia de modo.
+
+El sonido se escucha bajo aunque esté al máximo.
+
+El antivirus se actualiza repetidamente.
+
+El brillo máximo no se mantiene.
+
+El Wi-Fi no muestra la red doméstica.
+
+El teclado no activa mayúsculas.
+
+El sistema se reinicia solo una vez.
+
+El ratón no hace clic doble.
+
+El volumen se ajusta con retraso.
+
+El antivirus tarda en analizar.
+
+El Wi-Fi no conecta al primer intento.
+
+El reloj no se sincroniza con internet.
+
+El brillo se desactiva tras apagar.
+
+El cursor no cambia de forma.
+
+El antivirus marca un archivo limpio como sospechoso.
+
+El sistema muestra aviso de “error desconocido” sin consecuencias.
+
+# nivel medio
+
+El ordenador tarda varios minutos en iniciar el sistema operativo.
+
+El navegador se cierra inesperadamente al abrir varias pestañas.
+
+No puedo imprimir aunque la impresora está encendida.
+
+El sistema no reconoce mi disco externo USB.
+
+El teclado deja de responder y debo reiniciar para que vuelva.
+
+El Wi-Fi se desconecta constantemente.
+
+Los altavoces no reproducen sonido en algunas aplicaciones.
+
+El antivirus no puede completar el análisis
+
+El sistema muestra errores de “controlador no encontrado”.
+
+No puedo instalar actualizaciones de Windows.
+
+La cámara no funciona en videollamadas.
+
+El navegador muestra páginas en blanco al intentar cargar.
+
+El sistema se congela brevemente cada pocos minutos.
+
+No puedo abrir archivos PDF con ningún programa.
+
+El Bluetooth no conecta con ningún dispositivo.
+
+El touchpad deja de funcionar tras suspender el equipo.
+
+El ventilador suena constantemente muy fuerte.
+
+No puedo acceder a la configuración del sistema.
+
+El correo electrónico no sincroniza los mensajes nuevos.
+
+Las aplicaciones tardan demasiado en abrir.
+
+No puedo conectar a mi red Wi-Fi, pero otras sí funcionan.
+
+El sonido se entrecorta constantemente.
+
+El sistema reinicia solo sin previo aviso.
+
+El explorador de archivos deja de responder.
+
+El ratón se bloquea al abrir ciertos programas.
+
+El equipo no reconoce la impresora conectada por USB.
+
+El Wi-Fi muestra “sin acceso a internet” con frecuencia.
+
+El teclado se desconfigura al reiniciar.
+
+No puedo abrir el Panel de control.
+
+Las actualizaciones automáticas fallan al instalarse.
+
+El sistema tarda en apagar más de cinco minutos.
+
+La pantalla se queda congelada al cerrar una aplicación.
+
+No puedo desinstalar un programa que genera errores.
+
+El sistema pierde la conexión de red cada pocos minutos.
+
+La cámara muestra imagen negra en todas las apps.
+
+El sonido desaparece tras reconectar los auriculares.
+
+No puedo acceder a mi cuenta de usuario, solo al invitado.
+
+El antivirus no puede iniciar el servicio principal.
+
+Los archivos descargados aparecen corruptos.
+
+El Wi-Fi no detecta ninguna red disponible.
+
+El ratón USB deja de funcionar tras unos minutos.
+
+El sistema muestra mensaje de “archivo dañado” al abrir documentos.
+
+El teclado escribe letras diferentes a las presionadas.
+
+No puedo guardar cambios en archivos de Word o Excel.
+
+El sistema muestra pantalla negra con el cursor visible.
+
+El disco duro hace ruidos intermitentes.
+
+El navegador se bloquea al abrir videos en línea.
+
+No puedo acceder al administrador de tareas.
+
+La cámara no se enciende, aunque aparece como conectada.
+
+El antivirus informa error de actualización.
+
+El sistema muestra error al intentar restaurar.
+
+No puedo conectar dispositivos Bluetooth nuevos.
+
+El Wi-Fi no guarda la contraseña después de reiniciar.
+
+El equipo se apaga solo al alcanzar cierta temperatura.
+
+La pantalla se apaga aleatoriamente.
+
+El teclado tarda varios segundos en responder.
+
+No puedo instalar un nuevo programa, marca “falta de permisos”.
+
+El sistema detecta un error al verificar disco.
+
+Los archivos se abren con otro programa por defecto.
+
+El Wi-Fi se conecta, pero no navega.
+
+El micrófono no capta sonido.
+
+El antivirus no arranca con el sistema.
+
+El explorador de archivos se reinicia solo.
+
+El equipo tarda en reconocer memorias USB.
+
+No puedo cambiar la resolución de la pantalla.
+
+El ventilador funciona al máximo constantemente.
+
+El sistema muestra errores frecuentes de DLL faltante.
+
+El navegador no reproduce videos.
+
+El Bluetooth se desactiva solo.
+
+El sistema pide reparar el disco en cada inicio.
+
+No puedo apagar el ordenador sin forzar el botón.
+
+El Wi-Fi no mantiene la conexión estable.
+
+El teclado numérico no funciona.
+
+El sistema muestra errores de controladores gráficos.
+
+La cámara no enfoca correctamente.
+
+No puedo abrir la carpeta de documentos.
+
+El antivirus se bloquea al analizar el sistema.
+
+El sistema no responde al intentar suspender.
+
+No puedo enviar correos desde ninguna aplicación.
+
+El Wi-Fi muestra red disponible, pero no se conecta.
+
+El equipo tarda mucho en despertar del modo suspensión.
+
+Los archivos desaparecen temporalmente del escritorio.
+
+El sistema se reinicia tras error de actualización.
+
+No puedo ejecutar archivos .exe.
+
+La cámara se congela durante las videollamadas.
+
+El ratón no se mueve de forma fluida.
+
+El sonido no cambia aunque mueva el control de volumen.
+
+El sistema muestra mensaje de “usuario sin permisos”.
+
+No puedo desactivar el modo avión.
+
+El antivirus detecta un error de servicio.
+
+El sistema se congela al conectar un dispositivo externo.
+
+No puedo usar el teclado en ciertas aplicaciones.
+
+El Wi-Fi no detecta redes tras suspender.
+
+El explorador de archivos no carga las miniaturas.
+
+El sistema no permite eliminar ciertos archivos.
+
+El Bluetooth no guarda emparejamientos.
+
+El antivirus se bloquea al iniciar el escaneo.
+
+La cámara no graba video.
+
+El sistema muestra errores de compatibilidad con programas.
+
+El navegador no guarda las descargas correctamente.
+
+No puedo acceder a configuraciones del Wi-Fi.
+
+El ratón se desconecta al moverlo rápido.
+
+El sistema tarda más de lo normal en iniciar sesión.
+
+No puedo reproducir audio en YouTube.
+
+El antivirus detecta archivos como dañados sin razón.
+
+El Wi-Fi pierde conexión tras unos minutos.
+
+No puedo actualizar el controlador de la tarjeta gráfica.
+
+El teclado no responde tras actualizar.
+
+El sistema muestra pantalla azul brevemente y se reinicia.
+
+El micrófono deja de funcionar repentinamente.
+
+El navegador se congela con pestañas abiertas.
+
+El Wi-Fi no activa correctamente el modo punto de acceso.
+
+No puedo cambiar la fecha ni la hora del sistema.
+
+El antivirus no encuentra su base de datos.
+
+El sistema se queda en la pantalla de bienvenida.
+
+No puedo acceder a mis archivos personales.
+
+La cámara no muestra video en ninguna app.
+
+El ratón se mueve solo a un lado de la pantalla.
+
+El teclado repite letras sin presionarlas.
+
+El Wi-Fi se desactiva al encender el Bluetooth.
+
+No puedo abrir aplicaciones del sistema.
+
+El antivirus muestra error al eliminar una amenaza.
+
+El sistema se bloquea al abrir el correo.
+
+No puedo ajustar el brillo.
+
+El ratón se congela al desconectar el cargador.
+
+El Wi-Fi funciona solo unos minutos.
+
+No puedo descargar archivos desde el navegador.
+
+El teclado se desconecta en medio de la escritura.
+
+El sistema muestra “controlador de pantalla falló”.
+
+No puedo encender la cámara desde Configuración.
+
+El antivirus se desinstala parcialmente.
+
+El Wi-Fi no guarda redes conocidas.
+
+El sistema tarda en detectar la red doméstica.
+
+No puedo actualizar la hora automática.
+
+El teclado no funciona al inicio.
+
+El micrófono no se activa en videollamadas.
+
+El antivirus se queda en “analizando” sin progreso.
+
+El Wi-Fi muestra red conectada pero sin acceso.
+
+No puedo instalar un controlador necesario.
+
+El sistema muestra errores de registro.
+
+El ratón no responde tras suspender.
+
+No puedo acceder al administrador de dispositivos.
+
+El Wi-Fi desconecta tras reiniciar el router.
+
+El sistema se queda congelado en el logotipo.
+
+No puedo reproducir música.
+
+El antivirus muestra “error de motor de análisis”.
+
+El teclado cambia idioma sin aviso.
+
+El sistema no abre la tienda de aplicaciones.
+
+El Wi-Fi pierde red al cambiar de canal.
+
+No puedo abrir documentos antiguos.
+
+El antivirus no completa la actualización.
+
+El sistema no reconoce discos externos.
+
+El teclado se apaga al escribir.
+
+El Wi-Fi se desactiva tras modo reposo.
+
+El ratón deja de moverse aleatoriamente.
+
+No puedo abrir el menú de inicio.
+
+El sistema muestra mensajes de error al iniciar.
+
+El antivirus bloquea archivos del sistema.
+
+El Wi-Fi no permite compartir conexión.
+
+No puedo iniciar sesión con mi usuario principal.
+
+El sistema tarda en cerrar programas.
+
+El teclado no ilumina las teclas.
+
+El ratón no detecta movimiento sobre ciertas superficies.
+
+El antivirus no inicia tras reiniciar.
+
+El Wi-Fi muestra errores de IP.
+
+No puedo cambiar el fondo de pantalla.
+
+El sistema muestra pantallazo azul ocasionalmente.
+
+El teclado deja de funcionar tras conectar otro USB.
+
+El antivirus marca error en la cuarentena.
+
+El Wi-Fi pierde conexión al mover el portátil.
+
+El ratón se bloquea temporalmente.
+
+No puedo acceder a Configuración de red.
+
+El sistema no abre el explorador.
+
+El antivirus no se actualiza automáticamente.
+
+El Wi-Fi no detecta el router.
+
+No puedo instalar fuentes nuevas.
+
+El sistema muestra lentitud extrema al abrir carpetas.
+
+El teclado no reconoce comandos.
+
+El antivirus se detiene al 50% del análisis.
+
+El Wi-Fi cambia a otra red sin aviso.
+
+No puedo conectar por cable Ethernet.
+
+El sistema muestra error al guardar archivos.
+
+El ratón no hace clic en algunas áreas.
+
+El antivirus detecta una amenaza y no puede eliminarla.
+
+El Wi-Fi pide contraseña repetidamente.
+
+No puedo abrir el explorador de archivos.
+
+El teclado no responde tras actualización.
+
+El antivirus se queda bloqueado en “verificando actualizaciones”.
+
+El Wi-Fi se reinicia constantemente.
+
+No puedo ejecutar ciertos programas.
+
+El sistema muestra lentitud general al iniciar.
+
+El antivirus no puede eliminar elementos en cuarentena.
+
+El Wi-Fi no obtiene dirección IP.
+
+No puedo restaurar el sistema a un punto anterior.
+
+El teclado no escribe ciertos caracteres.
+
+El antivirus se desactiva sin razón.
+
+El Wi-Fi no detecta redes cercanas.
+
+El sistema muestra errores de permisos.
+
+No puedo abrir la configuración del antivirus.
+
+El Wi-Fi no guarda los ajustes del adaptador.
+
+# nivel grave
+
+El sistema operativo no inicia y se queda en la pantalla de carga.
+
+Aparece una pantalla azul con el mensaje “error crítico del sistema”.
+
+El ordenador se reinicia continuamente sin llegar al escritorio.
+
+El disco duro no es detectado por el sistema.
+
+El ordenador no arranca ni siquiera en modo seguro.
+
+La pantalla se queda completamente negra después del inicio.
+
+El sistema muestra “archivo de arranque dañado”.
+
+El ventilador hace un ruido fuerte y el equipo se apaga.
+
+El sistema no reconoce ningún dispositivo de almacenamiento.
+
+La BIOS no detecta el disco principal.
+
+Windows muestra error “bootmgr is missing”.
+
+El ordenador se apaga de forma repentina al iniciar sesión.
+
+No puedo acceder a ningún archivo del disco.
+
+El sistema se congela al 100% del uso del CPU.
+
+Aparecen errores constantes de “memoria insuficiente” aunque haya espacio.
+
+El ordenador entra en un ciclo infinito de reinicio.
+
+No puedo iniciar sesión con ninguna cuenta.
+
+El disco duro hace clics repetitivos al encender.
+
+El sistema muestra “falta archivo system32”.
+
+El ventilador no arranca y el equipo se sobrecalienta.
+
+No hay señal de video en el monitor al encender.
+
+La BIOS no responde a ningún comando.
+
+El sistema operativo muestra “error fatal al cargar controladores”.
+
+El disco muestra sectores defectuosos y no se puede reparar.
+
+No se detecta ningún dispositivo USB, incluyendo teclado o ratón.
+
+El ordenador no arranca tras actualizar Windows.
+
+Se pierde la partición principal del disco.
+
+El equipo muestra “no se encontró el sistema operativo”.
+
+La pantalla parpadea sin mostrar imagen.
+
+El sistema se apaga al intentar iniciar cualquier aplicación.
+
+El ordenador entra en modo reparación y nunca finaliza.
+
+El teclado no responde en la pantalla de inicio.
+
+El ratón no se mueve ni con cable ni inalámbrico.
+
+El sistema se bloquea al intentar cargar el escritorio.
+
+Aparece error “ntoskrnl.exe faltante”.
+
+El disco muestra error SMART.
+
+El sistema reinicia en bucle tras intentar restaurar.
+
+El ordenador no detecta la memoria RAM instalada.
+
+Aparece olor a quemado al encender el equipo.
+
+El monitor muestra “sin señal” aunque el PC enciende.
+
+El sistema se apaga al alcanzar cierta temperatura.
+
+No se puede reparar el arranque con el disco de recuperación.
+
+El ordenador muestra solo un guion parpadeante.
+
+El disco no permite copiar archivos.
+
+La BIOS muestra “checksum error”.
+
+El ordenador se apaga repentinamente al conectar el cargador.
+
+El sistema muestra “error crítico del kernel”.
+
+El ventilador no gira y el CPU alcanza altas temperaturas.
+
+El equipo no detecta el teclado ni el ratón en BIOS.
+
+El sistema muestra pantalla azul con código de error 0x0000007B.
+
+No puedo iniciar el modo recuperación.
+
+El sistema no reconoce ninguna unidad de disco.
+
+El ordenador no detecta la tarjeta gráfica.
+
+La pantalla se queda congelada incluso tras reiniciar.
+
+No puedo acceder al menú de arranque.
+
+El sistema muestra “corrupción en archivos del sistema”.
+
+La partición principal se borró accidentalmente.
+
+El sistema no permite reparar errores de disco.
+
+El ordenador no responde al botón de encendido.
+
+La batería no carga ni con el cargador original.
+
+El disco muestra error de lectura permanente.
+
+El sistema se congela durante la instalación del SO.
+
+El ordenador se reinicia a mitad de una actualización.
+
+La pantalla se apaga y no vuelve a encender.
+
+El sistema muestra “error crítico del registro”.
+
+La memoria RAM no pasa las pruebas de diagnóstico.
+
+No puedo acceder a la BIOS.
+
+El sistema no reconoce la tarjeta de red.
+
+El disco desaparece del administrador de dispositivos.
+
+El ordenador muestra chispas o humo al encender.
+
+El ventilador acelera al máximo sin motivo.
+
+El sistema se bloquea incluso en modo seguro.
+
+El teclado escribe caracteres aleatorios.
+
+El disco duro no arranca y emite sonidos metálicos.
+
+El sistema muestra error “hal.dll faltante”.
+
+No se puede iniciar desde ningún medio de arranque.
+
+El equipo reinicia justo antes de mostrar el escritorio.
+
+El disco muestra errores de escritura permanentes.
+
+El sistema no permite acceso al administrador de tareas.
+
+La BIOS se restablece sola en cada encendido.
+
+El equipo se calienta incluso sin uso.
+
+No hay señal de video al conectar HDMI.
+
+El sistema muestra “error irrecuperable de hardware”.
+
+El teclado deja de funcionar completamente.
+
+El ordenador muestra pantalla blanca fija.
+
+El disco emite ruidos extraños constantes.
+
+El sistema se congela al instalar controladores.
+
+No puedo abrir ni un solo programa.
+
+El ventilador deja de girar al instante de encender.
+
+El sistema no guarda ningún cambio tras reiniciar.
+
+El ordenador no detecta unidades SATA.
+
+Aparece pantalla azul tras cada intento de inicio.
+
+El sistema muestra “no se pudo montar la unidad principal”.
+
+El BIOS no detecta memoria RAM.
+
+No hay salida de sonido ni video.
+
+El sistema operativo no se instala en ningún disco.
+
+El disco muestra “espacio desconocido” al intentar formatear.
+
+El sistema se apaga durante el arranque.
+
+No puedo acceder al disco ni desde otro ordenador.
+
+El ordenador no responde a ningún comando del teclado.
+
+La BIOS no guarda los cambios realizados.
+
+El sistema muestra “error al cargar el gestor de arranque”.
+
+El equipo muestra pantalla de error con pitidos constantes.
+
+El sistema no detecta el procesador.
+
+No puedo ejecutar el modo seguro.
+
+El disco muestra sectores irrecuperables.
+
+La pantalla se queda congelada tras mostrar el logotipo.
+
+El equipo se apaga al enchufar un periférico.
+
+El sistema muestra “error fatal del núcleo”.
+
+El BIOS muestra “no boot device available”.
+
+El disco desaparece incluso en BIOS.
+
+El sistema no permite reinstalar el SO.
+
+El teclado deja de responder incluso en BIOS.
+
+El ordenador muestra pitidos largos al encender.
+
+El disco duro se calienta excesivamente.
+
+El sistema no detecta discos USB de recuperación.
+
+El monitor se apaga después del logotipo de inicio.
+
+El equipo muestra “inaccesible boot device”.
+
+El disco no puede ser formateado.
+
+El sistema muestra errores de corrupción en memoria.
+
+No puedo acceder al BIOS tras reinicio.
+
+El ventilador deja de girar y el sistema se apaga.
+
+La pantalla se enciende con líneas verticales.
+
+El sistema muestra error “kernel data inpage”.
+
+El equipo no detecta la unidad de CD/DVD.
+
+El sistema muestra “error de comprobación de seguridad”.
+
+El disco emite pitidos cortos.
+
+El ordenador no responde ni al mantener el botón de apagado.
+
+El BIOS muestra información incorrecta del hardware.
+
+El sistema no detecta tarjeta de sonido.
+
+El disco aparece como “no asignado” en el administrador.
+
+No puedo crear particiones en el disco.
+
+El sistema muestra pantalla azul cada vez que inicia.
+
+El ventilador gira intermitentemente y se apaga.
+
+El sistema no arranca tras actualizar BIOS.
+
+No puedo restaurar el sistema desde ningún punto.
+
+El ordenador muestra pitido continuo al encender.
+
+El disco duro no gira.
+
+El sistema no detecta ningún hardware instalado.
+
+El BIOS muestra error de checksum CMOS.
+
+No hay video aunque los ventiladores giran.
+
+El sistema muestra “error crítico de almacenamiento”.
+
+No puedo acceder al escritorio bajo ningún modo.
+
+El disco muestra datos corruptos.
+
+El sistema no permite crear usuarios.
+
+El ordenador no se apaga ni responde.
+
+El BIOS muestra error “overclocking failed”.
+
+El sistema no permite escribir en el disco.
+
+La pantalla muestra parpadeo permanente.
+
+El sistema no detecta la GPU.
+
+No puedo arrancar desde un USB booteable.
+
+El disco principal desaparece tras reiniciar.
+
+El sistema muestra error “bad system config info”.
+
+La BIOS se bloquea al guardar cambios.
+
+El equipo muestra pitidos al azar.
+
+El sistema no reconoce teclado ni ratón después del arranque.
+
+El disco presenta errores de lectura continuos.
+
+El sistema se apaga al ejecutar cualquier programa.
+
+No puedo ingresar al entorno de recuperación.
+
+El BIOS muestra valores de temperatura erróneos.
+
+El sistema se queda en “preparando reparación automática” indefinidamente.
+
+El disco se desconecta repentinamente durante el uso.
+
+El sistema muestra “critical process died”.
+
+El ventilador se detiene al arrancar.
+
+El ordenador reinicia cada vez que intento actualizar.
+
+El BIOS no reconoce la GPU integrada.
+
+El disco muestra error de formato.
+
+El sistema no carga el escritorio.
+
+El ordenador no muestra video tras modo suspensión.
+
+El sistema presenta errores de corrupción en registro.
+
+El disco deja de girar tras unos segundos.
+
+El sistema muestra “inaccessible boot volume”.
+
+No puedo iniciar desde DVD ni USB.
+
+El BIOS se resetea constantemente.
+
+El disco produce chasquidos repetitivos.
+
+El sistema se apaga al conectar un segundo monitor.
+
+El BIOS muestra error “CPU fan failed”.
+
+El sistema muestra “CRITICAL_STRUCTURE_CORRUPTION”.
+
+El disco no responde a comandos de formateo.
+
+El ordenador no inicia después de una tormenta eléctrica.
+
+El sistema muestra “no se puede acceder a la partición”.
+
+El BIOS no detecta la batería CMOS.
+
+El ventilador no responde al cambio de temperatura.
+
+El sistema muestra “kernel panic” al arrancar.
+
+El ordenador se reinicia al abrir una aplicación pesada.
+
+El disco se bloquea a mitad de copia de archivos.
+
+El sistema muestra “unmountable boot volume”.
+
+No hay señal de audio tras reinstalar controladores.
+
+El sistema muestra “hardware failure detected”.
+
+El disco no permite leer ningún archivo.
+
+El BIOS no guarda el orden de arranque.
+
+El sistema se apaga sin aviso al 50% del arranque.
+
+El disco presenta errores irrecuperables en SMART.
+
+El BIOS muestra “no CPU installed”.
+
+El sistema no detecta ningún puerto USB.
+
+El disco se calienta rápidamente y deja de girar.
+
+El sistema no arranca tras apagón.
+
+El BIOS muestra “power surge detected”.
+
+El sistema muestra “critical error on startup”.
+
+El ordenador no enciende ni muestra luces indicadoras.
+
+# nivel extremo
+
+El ordenador no enciende ni muestra ninguna luz.
+
+Se escucha un chasquido y el equipo se apaga definitivamente.
+
+Del interior del portátil salió humo al encenderlo.
+
+El adaptador de corriente se quemó y no hay energía en el equipo.
+
+El disco duro no gira y emite olor a quemado.
+
+La placa base presenta signos visibles de quemadura.
+
+El ordenador sufrió una descarga eléctrica durante una tormenta.
+
+El equipo se cayó y la pantalla se rompió completamente.
+
+La batería se infló y deformó la carcasa del portátil.
+
+El sistema no arranca ni responde a la corriente.
+
+El BIOS no inicia y muestra pantalla completamente negra.
+
+El ordenador emite pitidos continuos y no muestra imagen.
+
+Se rompió el conector de energía del portátil.
+
+El equipo no arranca ni con fuente de poder externa.
+
+El disco duro hace ruido de raspado constante.
+
+Se derramó líquido sobre el teclado y el sistema no responde.
+
+El ordenador se apaga apenas lo conecto.
+
+La pantalla muestra manchas negras permanentes.
+
+El sistema no muestra señales de vida tras un corto circuito.
+
+El chip de la placa madre presenta daño visible.
+
+El puerto de carga se desprendió de la placa.
+
+La BIOS se corrompió completamente y no inicia.
+
+El ordenador se sobrecalentó y dejó de funcionar.
+
+El equipo sufrió una caída y no vuelve a encender.
+
+El transformador del cargador se quemó y soltó humo.
+
+El disco SSD no es detectado ni en otro equipo.
+
+El portátil se apagó mientras olía a plástico quemado.
+
+El sistema no muestra señal de video ni con monitor externo.
+
+El ventilador está completamente trabado.
+
+El ordenador no reacciona al botón de encendido.
+
+El procesador se quemó por sobrecalentamiento.
+
+El equipo no responde ni con batería ni con cargador.
+
+El BIOS dejó de funcionar tras un fallo eléctrico.
+
+El ordenador no carga, y la luz de corriente no se enciende.
+
+La pantalla muestra grietas internas por impacto.
+
+El teclado está inservible por daño de líquidos.
+
+El disco duro presenta sectores dañados en toda su superficie.
+
+La memoria RAM se quemó y el sistema no arranca.
+
+El equipo fue golpeado y dejó de encender.
+
+El puerto HDMI se rompió físicamente.
+
+El portátil sufrió una sobrecarga eléctrica.
+
+La placa base no reconoce ningún componente.
+
+El ordenador se apaga de inmediato con chispazo.
+
+El BIOS no muestra imagen ni responde al teclado.
+
+El ventilador se derritió parcialmente por calor.
+
+El procesador no hace contacto con la placa base.
+
+Se rompió el cable del conector de corriente.
+
+El disco duro no aparece ni con adaptador externo.
+
+El equipo no emite sonidos de inicio ni luces.
+
+La pantalla quedó completamente blanca tras golpe.
+
+El ordenador se dañó tras conectar un adaptador incorrecto.
+
+El sistema sufrió daño irreparable por virus del sector de arranque.
+
+El BIOS no arranca ni tras reinicio manual.
+
+El equipo fue sumergido en agua accidentalmente.
+
+El disco muestra cero capacidad al conectarlo.
+
+El sistema no reacciona a ningún intento de encendido.
+
+El puerto de carga se quemó.
+
+La fuente de poder explotó al conectarse.
+
+El ordenador desprende olor a componente quemado.
+
+El portátil no carga ni con batería nueva.
+
+La pantalla no enciende ni tiene retroiluminación.
+
+El ventilador no funciona y el CPU se quema al instante.
+
+El BIOS se corrompió y no puede reprogramarse.
+
+El equipo fue afectado por una subida de tensión.
+
+El sistema no detecta ningún componente de hardware.
+
+El disco emite chispas al conectarlo.
+
+La placa base tiene un chip partido.
+
+El procesador se fracturó físicamente.
+
+El puerto USB humeó al conectar un dispositivo.
+
+El ordenador no arranca y produce olor a metal quemado.
+
+El BIOS quedó inservible tras actualización interrumpida.
+
+El equipo sufrió daño total por humedad interna.
+
+El disco no es legible ni por herramientas de recuperación.
+
+La batería explotó parcialmente.
+
+La pantalla se rompió completamente tras caída.
+
+El sistema no detecta ni siquiera el BIOS.
+
+El ventilador está derretido y bloquea el sistema.
+
+El disco duro presenta daño físico en los platos.
+
+El cargador produce chispa al enchufarlo.
+
+La carcasa se derritió cerca del conector de energía.
+
+El BIOS dejó de responder por sobrecalentamiento.
+
+El equipo sufrió cortocircuito interno.
+
+El disco se incendió parcialmente.
+
+El sistema muestra pixelado fijo sin imagen
+
+El ventilador se desprendió del disipador.
+
+El portátil cayó en agua y no encendió más.
+
+La placa base tiene condensadores explotados.
+
+El disco dejó de girar completamente.
+
+El BIOS no detecta ningún hardware.
+
+El ordenador no responde al botón de encendido ni con batería.
+
+El chip gráfico se quemó.
+
+El sistema no arranca ni desde USB, DVD ni red.
+
+La pantalla quedó completamente negra tras sobrecarga.
+
+El teclado se derritió parcialmente.
+
+El ventilador no hace contacto con el disipador.
+
+La fuente de poder interna se quemó.
+
+El sistema huele a componentes fundidos.
+
+El procesador no es reconocido por la placa.
+
+El BIOS no puede inicializar ningún dispositivo.
+
+El disco duro presenta daño irreversible.
+
+El equipo no reacciona tras un apagón.
+
+El monitor externo tampoco muestra señal.
+
+El cargador hace ruido de chispa.
+
+La placa base no entrega energía.
+
+El sistema se apagó y nunca volvió a encender.
+
+El equipo desprendió humo por el puerto USB.
+
+El BIOS no arranca ni con batería nueva.
+
+La pantalla está completamente rota.
+
+El portátil no carga ni prende.
+
+El procesador presenta grietas visibles.
+
+El disco no es reconocido ni por BIOS ni por herramientas.
+
+La placa base muestra circuito carbonizado.
+
+El equipo no responde ni al cambio de fuente.
+
+El BIOS no puede recuperar el firmware.
+
+El ventilador se desprendió y rompió el cableado.
+
+La carcasa se derritió parcialmente.
+
+El sistema se apagó mientras emitía chispas.
+
+El disco fue formateado por completo sin posibilidad de recuperar datos.
+
+El BIOS fue eliminado accidentalmente con software erróneo.
+
+El equipo no enciende tras recibir descarga por USB.
+
+La pantalla no tiene retroiluminación ni imagen.
+
+La batería explotó internamente.
+
+El ventilador dejó de girar para siempre.
+
+El BIOS se borró y no hay respaldo.
+
+El disco se partió tras golpe.
+
+El sistema no detecta ni el teclado en BIOS.
+
+El ordenador no enciende tras varios intentos.
+
+El procesador se quemó al quitar el disipador.
+
+El BIOS se corrompió sin posibilidad de flasheo.
+
+La fuente hace ruido pero no enciende el sistema.
+
+El disco fue dañado físicamente por golpe.
+
+El puerto de carga se derritió.
+
+El sistema muestra cortocircuito inmediato.
+
+El BIOS no arranca ni con chip nuevo.
+
+El equipo sufrió caída desde gran altura.
+
+El disco quedó completamente ilegible.
+
+El BIOS no responde tras flasheo fallido.
+
+El equipo no enciende después de una subida de tensión.
+
+El ventilador y la placa base están dañados.
+
+El sistema no recibe energía de ninguna fuente.
+
+El BIOS no muestra nada y no hay señal de video.
+
+La batería se derramó dentro del portátil.
+
+El cargador interno hizo explosión leve.
+
+El disco gira y se detiene de inmediato.
+
+La pantalla está fracturada internamente.
+
+El BIOS fue eliminado completamente.
+
+El ventilador principal no existe tras quemadura.
+
+La placa base presenta cortos múltiples.
+
+El sistema no da señal alguna.
+
+El procesador huele a quemado.
+
+El BIOS fue reemplazado por error con firmware incompatible.
+
+El equipo se incendió por sobrevoltaje.
+
+El disco muestra 0 MB de capacidad.
+
+La fuente de poder explotó.
+
+El BIOS está físicamente dañado.
+
+El ventilador se fundió.
+
+El disco perdió todos los datos por daño de superficie.
+
+La placa base no enciende ni con fuente externa.
+
+El ordenador muestra cortocircuito apenas se conecta.
+
+El BIOS no puede ser flasheado por hardware dañado.
+
+El procesador quedó suelto del socket.
+
+El disco emite ruido metálico permanente.
+
+El equipo no reacciona ni con componentes nuevos.
+
+La batería se incendió.
+
+El BIOS no carga ni muestra pantalla.
+
+El ventilador se partió en dos.
+
+El sistema se dañó completamente por sobretensión.
+
+El disco tiene los conectores rotos.
+
+El BIOS no arranca ni con chip de reemplazo.
+
+La placa base emite olor a quemado.
+
+El ventilador y el procesador están destruidos.
+
+El BIOS quedó inutilizable por corrupción total.
+
+El equipo sufrió daño por fuego.
+
+El disco no gira más.
+
+La batería explotó físicamente.
+
+El BIOS no detecta ningún componente.
+
+El procesador no emite calor al encender.
+
+El equipo murió tras una descarga USB.
+
+El ventilador se rompió al girar.
+
+El BIOS no responde al teclado ni muestra video.
+
+El sistema presenta daños irreversibles.
+
+El procesador se derritió parcialmente.
+
+El BIOS no inicia tras reinicio de emergencia.
+
+El disco fue dañado por caída.
+
+La placa base tiene varios chips quemados.
+
+El equipo no responde ni a reseteo físico.
+
+El BIOS no arranca ni tras cambiar CPU.
+
+El ventilador está bloqueado por derretimiento.
+
+El sistema sufrió cortocircuito irreversible.
+
+El disco duro tiene los cabezales rotos.
+
+El BIOS no inicia tras intento de actualización.
+
+El equipo se incendió al conectarlo.
+
+El ventilador produce chispas.
+
+El disco fue borrado físicamente.
+
+El BIOS muestra pantalla en blanco permanente.
+
+La fuente no entrega voltaje alguno.
+
+El procesador no arranca ni con otra placa.
+
+El BIOS y la placa base están carbonizados.
+
+El disco está quebrado internamente.
+
+El ordenador no da señales de vida tras cualquier intento.
