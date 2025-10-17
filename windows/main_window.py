@@ -1,14 +1,16 @@
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
     QComboBox, QTableWidget, QTableWidgetItem,
-    QLabel, QMessageBox, QFileDialog
+    QLabel, QMessageBox, QFileDialog, QDateEdit
 )
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QDate
 from collections import Counter
 import matplotlib.pyplot as plt
+from datetime import datetime
+from collections import defaultdict
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados, update_estado_incidencia
+from database.database import get_incidencias, add_incidencia, delete_incidencia, get_titulos_y_estados, update_estado_incidencia, get_datos_para_graficas
 from windows.ficheroincidencias import IncidenciaForm
 
 
@@ -17,15 +19,19 @@ class MainWindow(QWidget):
         super().__init__()
         self.user_id = user_id
         self.setWindowTitle("Gestor de Incidencias")
-        self.resize(850, 500)
+        self.resize(950, 500)
 
         layout = QVBoxLayout()
 
-        # ---------- FILTROS ----------
+        # ---------- FILTROS, GRÁFICAS Y EXPORTAR (3 FILAS) ----------
         filtros_container = QWidget()
-        filtros_layout = QHBoxLayout()
-        filtros_layout.setContentsMargins(20, 20, 20, 10)
-        filtros_layout.setSpacing(10)
+        filtros_superior = QVBoxLayout()
+        filtros_superior.setContentsMargins(20, 20, 20, 10)
+        filtros_superior.setSpacing(8)
+
+        # --- Fila 1: filtros ---
+        filtros_layout_1 = QHBoxLayout()
+        filtros_layout_1.setSpacing(10)
 
         label_estado = QLabel("Estado:")
         self.estado_combo = QComboBox()
@@ -37,37 +43,88 @@ class MainWindow(QWidget):
         self.prioridad_combo.addItems(["Todos", "baja", "media", "alta", "extrema"])
         self.prioridad_combo.setFixedWidth(110)
 
+        label_desde = QLabel("Desde:")
+        self.fecha_desde = QDateEdit()
+        self.fecha_desde.setDisplayFormat("yyyy-MM-dd")
+        self.fecha_desde.setCalendarPopup(True)
+        self.fecha_desde.setDate(QDate.currentDate().addMonths(-1))
+
+        label_hasta = QLabel("Hasta:")
+        self.fecha_hasta = QDateEdit()
+        self.fecha_hasta.setDisplayFormat("yyyy-MM-dd")
+        self.fecha_hasta.setCalendarPopup(True)
+        self.fecha_hasta.setDate(QDate.currentDate())
+
         self.boton_filtrar = QPushButton("Filtrar")
         self.boton_filtrar.setFixedWidth(90)
         self.boton_filtrar.clicked.connect(self.load_data)
 
-        self.boton_grafica_circular = QPushButton("Gráfica circular")
-        self.boton_grafica_circular.setFixedWidth(130)
-        self.boton_grafica_circular.clicked.connect(self.mostrar_grafica_estado_1)
+        filtros_layout_1.addWidget(label_estado)
+        filtros_layout_1.addWidget(self.estado_combo)
+        filtros_layout_1.addSpacing(10)
+        filtros_layout_1.addWidget(label_prioridad)
+        filtros_layout_1.addWidget(self.prioridad_combo)
+        filtros_layout_1.addSpacing(10)
+        filtros_layout_1.addWidget(label_desde)
+        filtros_layout_1.addWidget(self.fecha_desde)
+        filtros_layout_1.addWidget(label_hasta)
+        filtros_layout_1.addWidget(self.fecha_hasta)
+        filtros_layout_1.addSpacing(10)
+        filtros_layout_1.addWidget(self.boton_filtrar)
+        filtros_layout_1.addStretch()
 
-        self.boton_grafica_barras = QPushButton("Gráfica de barras")
-        self.boton_grafica_barras.setFixedWidth(130)
-        self.boton_grafica_barras.clicked.connect(self.mostrar_grafica_estado_2)
+        # --- Fila 2: gráficas ---
+        filtros_layout_2 = QHBoxLayout()
+        filtros_layout_2.setSpacing(10)
 
-        # NUEVO BOTÓN: Exportar a PDF
+        label_graficas = QLabel("Gráficas:")
+
+        self.boton_grafica_tipo = QPushButton("Por tipo (categoría)")
+        self.boton_grafica_tipo.setFixedWidth(150)
+        self.boton_grafica_tipo.clicked.connect(self.mostrar_grafica_por_tipo)
+
+        self.boton_grafica_estado = QPushButton("Por estado")
+        self.boton_grafica_estado.setFixedWidth(130)
+        self.boton_grafica_estado.clicked.connect(self.mostrar_grafica_por_estado)
+
+        self.boton_grafica_tiempo = QPushButton("Por tiempo de resolución")
+        self.boton_grafica_tiempo.setFixedWidth(180)
+        self.boton_grafica_tiempo.clicked.connect(self.mostrar_grafica_por_tiempo)
+
+        filtros_layout_2.addWidget(label_graficas)
+        filtros_layout_2.addWidget(self.boton_grafica_tipo)
+        filtros_layout_2.addWidget(self.boton_grafica_estado)
+        filtros_layout_2.addWidget(self.boton_grafica_tiempo)
+        filtros_layout_2.addStretch()
+
+        # --- Fila 3: exportar ---
+        filtros_layout_3 = QHBoxLayout()
+        filtros_layout_3.setSpacing(10)
+
+        label_exportar = QLabel("Exportar:")
+
         self.boton_exportar_pdf = QPushButton("Exportar a PDF")
         self.boton_exportar_pdf.setFixedWidth(130)
         self.boton_exportar_pdf.clicked.connect(self.exportar_pdf)
 
-        filtros_layout.addWidget(label_estado)
-        filtros_layout.addWidget(self.estado_combo)
-        filtros_layout.addSpacing(15)
-        filtros_layout.addWidget(label_prioridad)
-        filtros_layout.addWidget(self.prioridad_combo)
-        filtros_layout.addSpacing(10)
-        filtros_layout.addWidget(self.boton_filtrar)
-        filtros_layout.addStretch()
-        filtros_layout.addWidget(self.boton_grafica_circular)
-        filtros_layout.addWidget(self.boton_grafica_barras)
-        filtros_layout.addWidget(self.boton_exportar_pdf)
+        self.boton_exportar_csv = QPushButton("Exportar a CSV")
+        self.boton_exportar_csv.setFixedWidth(130)
+        self.boton_exportar_csv.clicked.connect(self.exportar_csv)
 
-        filtros_container.setLayout(filtros_layout)
+        filtros_layout_3.addWidget(label_exportar)
+        filtros_layout_3.addWidget(self.boton_exportar_pdf)
+        filtros_layout_3.addWidget(self.boton_exportar_csv)
+        filtros_layout_3.addStretch()
+
+        # --- Combinar las tres filas ---
+        filtros_superior.addLayout(filtros_layout_1)
+        filtros_superior.addLayout(filtros_layout_2)
+        filtros_superior.addLayout(filtros_layout_3)
+
+        filtros_container.setLayout(filtros_superior)
         layout.addWidget(filtros_container)
+
+
 
         # ---------- TABLA ----------
         self.table = QTableWidget()
@@ -102,7 +159,10 @@ class MainWindow(QWidget):
     def load_data(self):
         estado = self.estado_combo.currentText()
         prioridad = self.prioridad_combo.currentText()
-        incidencias = get_incidencias(estado, prioridad)
+        fecha_desde = self.fecha_desde.date().toString("yyyy-MM-dd")
+        fecha_hasta = self.fecha_hasta.date().toString("yyyy-MM-dd")
+
+        incidencias = get_incidencias(estado, prioridad, fecha_desde, fecha_hasta)
         self.table.setRowCount(len(incidencias))
 
         for row, inc in enumerate(incidencias):
@@ -140,34 +200,89 @@ class MainWindow(QWidget):
 
     # ---------------- GRÁFICAS ---------------- #
 
-    def mostrar_grafica_estado_1(self):
-        datos = get_titulos_y_estados()
+    def mostrar_grafica_por_tipo(self):
+        fecha_desde = self.fecha_desde.date().toString("yyyy-MM-dd")
+        fecha_hasta = self.fecha_hasta.date().toString("yyyy-MM-dd")
+        datos = get_datos_para_graficas(fecha_desde, fecha_hasta)
+
         if not datos:
             QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
             return
-        estados = [estado for _, estado in datos]
+
+        categorias = [fila[0] for fila in datos if fila[0]]
+        conteo = Counter(categorias)
+
+        plt.figure(figsize=(7, 4))
+        plt.bar(conteo.keys(), conteo.values())
+        plt.title("Incidencias por tipo (categoría)")
+        plt.xlabel("Categoría")
+        plt.ylabel("Cantidad")
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.tight_layout()
+        plt.show()
+
+
+    def mostrar_grafica_por_estado(self):
+        """Gráfico circular: distribución de incidencias por estado."""
+        fecha_desde = self.fecha_desde.date().toString("yyyy-MM-dd")
+        fecha_hasta = self.fecha_hasta.date().toString("yyyy-MM-dd")
+        datos = get_datos_para_graficas(fecha_desde, fecha_hasta)
+
+        if not datos:
+            QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
+            return
+
+        estados = [fila[1] for fila in datos if fila[1]]
         conteo_estados = Counter(estados)
-        etiquetas, valores = zip(*sorted(conteo_estados.items(), key=lambda x: x[1], reverse=True))
+
+        etiquetas, valores = zip(*conteo_estados.items())
         colores = plt.get_cmap('Set3').colors
         plt.figure(figsize=(6, 6))
         plt.pie(valores, labels=etiquetas, autopct='%1.1f%%', startangle=90, colors=colores)
-        plt.title('Distribución de Incidencias por Estado')
-        plt.axis('equal')
+        plt.title("Distribución de incidencias por estado")
+        plt.axis("equal")
         plt.show()
 
-    def mostrar_grafica_estado_2(self):
-        datos = get_titulos_y_estados()
+
+    def mostrar_grafica_por_tiempo(self):
+        """Gráfico de líneas: promedio de tiempo de resolución por categoría."""
+        fecha_desde = self.fecha_desde.date().toString("yyyy-MM-dd")
+        fecha_hasta = self.fecha_hasta.date().toString("yyyy-MM-dd")
+        datos = get_datos_para_graficas(fecha_desde, fecha_hasta)
+
         if not datos:
             QMessageBox.information(self, "Sin datos", "No hay incidencias para mostrar.")
             return
-        estados = [estado for _, estado in datos]
-        conteo_estados = Counter(estados)
-        etiquetas, valores = zip(*conteo_estados.items())
-        plt.figure(figsize=(6, 4))
-        plt.bar(etiquetas, valores)
-        plt.title('Número de Incidencias por Estado')
-        plt.xlabel('Estado')
-        plt.ylabel('Cantidad')
+
+        tiempos = defaultdict(list)
+
+        for categoria, _, fecha_creacion, fecha_resolucion in datos:
+            if fecha_resolucion:
+                try:
+                    f1 = datetime.strptime(fecha_creacion, "%Y-%m-%d %H:%M:%S")
+                except ValueError:
+                    f1 = datetime.strptime(fecha_creacion, "%Y-%m-%d")
+                try:
+                    f2 = datetime.strptime(fecha_resolucion, "%Y-%m-%d %H:%M:%S")
+                except ValueError:
+                    f2 = datetime.strptime(fecha_resolucion, "%Y-%m-%d")
+                dias = (f2 - f1).days
+                tiempos[categoria].append(dias)
+
+        if not tiempos:
+            QMessageBox.information(self, "Sin datos", "No hay incidencias cerradas con fecha de resolución.")
+            return
+
+        categorias = list(tiempos.keys())
+        promedios = [sum(v) / len(v) for v in tiempos.values()]
+
+        plt.figure(figsize=(7, 4))
+        plt.plot(categorias, promedios, marker='o')
+        plt.title("Tiempo promedio de resolución por categoría")
+        plt.xlabel("Categoría")
+        plt.ylabel("Días promedio")
+        plt.grid(True, linestyle='--', alpha=0.7)
+        plt.tight_layout()
         plt.show()
 
     # ---------------- EXPORTAR A PDF ---------------- #
@@ -176,13 +291,15 @@ class MainWindow(QWidget):
         """Genera un PDF con las incidencias mostradas actualmente en la tabla."""
         estado = self.estado_combo.currentText()
         prioridad = self.prioridad_combo.currentText()
-        incidencias = get_incidencias(estado, prioridad)
+        fecha_desde = self.fecha_desde.date().toString("yyyy-MM-dd")
+        fecha_hasta = self.fecha_hasta.date().toString("yyyy-MM-dd")
+
+        incidencias = get_incidencias(estado, prioridad, fecha_desde, fecha_hasta)
 
         if not incidencias:
             QMessageBox.warning(self, "Sin datos", "No hay incidencias para exportar.")
             return
 
-        # Pedir al usuario dónde guardar el PDF
         ruta, _ = QFileDialog.getSaveFileName(self, "Guardar PDF", "incidencias.pdf", "Archivos PDF (*.pdf)")
         if not ruta:
             return
@@ -195,6 +312,8 @@ class MainWindow(QWidget):
         y -= 30
         c.setFont("Helvetica", 10)
         c.drawString(50, y, f"Estado: {estado} | Prioridad: {prioridad}")
+        y -= 15
+        c.drawString(50, y, f"Rango de fechas: {fecha_desde} a {fecha_hasta}")
         y -= 30
 
         for inc in incidencias:
@@ -212,3 +331,34 @@ class MainWindow(QWidget):
 
         c.save()
         QMessageBox.information(self, "Exportación completa", f"PDF guardado en:\n{ruta}")
+
+    def exportar_csv(self):
+        import csv
+
+        estado = self.estado_combo.currentText()
+        prioridad = self.prioridad_combo.currentText()
+        fecha_desde = self.fecha_desde.date().toString("yyyy-MM-dd")
+        fecha_hasta = self.fecha_hasta.date().toString("yyyy-MM-dd")
+
+        incidencias = get_incidencias(estado, prioridad, fecha_desde, fecha_hasta)
+
+        if not incidencias:
+            QMessageBox.warning(self, "Sin datos", "No hay incidencias para exportar.")
+            return
+
+        ruta, _ = QFileDialog.getSaveFileName(self, "Guardar CSV", "incidencias.csv", "Archivos CSV (*.csv)")
+        if not ruta:
+            return
+
+        try:
+            with open(ruta, "w", newline="", encoding="utf-8") as archivo_csv:
+                escritor = csv.writer(archivo_csv)
+                # Cabecera
+                escritor.writerow(["ID", "Título", "Descripción", "Categoría", "Estado", "Prioridad", "Fecha creación"])
+                # Filas
+                for inc in incidencias:
+                    escritor.writerow(inc)
+
+            QMessageBox.information(self, "Exportación completa", f"CSV guardado en:\n{ruta}")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"No se pudo exportar el CSV:\n{str(e)}")

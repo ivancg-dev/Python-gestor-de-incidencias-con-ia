@@ -68,7 +68,7 @@ def verificar_usuario(usuario, password_hash):
 # Funciones de incidencias
 # -------------------------------
 
-def get_incidencias(estado=None, prioridad=None):
+def get_incidencias(estado=None, prioridad=None, fecha_desde=None, fecha_hasta=None):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
@@ -82,6 +82,12 @@ def get_incidencias(estado=None, prioridad=None):
     if prioridad and prioridad != "Todos":
         sql += " AND prioridad=?"
         params.append(prioridad)
+    if fecha_desde:
+        sql += " AND date(fecha_creacion) >= date(?)"
+        params.append(fecha_desde)
+    if fecha_hasta:
+        sql += " AND date(fecha_creacion) <= date(?)"
+        params.append(fecha_hasta)
 
     cursor.execute(sql, params)
     data = cursor.fetchall()
@@ -146,9 +152,47 @@ def delete_incidencia(incidencia_id):
 
 def update_estado_incidencia(incidencia_id, nuevo_estado):
     import sqlite3
+    from datetime import datetime
+
     conn = sqlite3.connect("incidencias_app.db")
     cursor = conn.cursor()
-    cursor.execute("UPDATE incidencias SET estado = ? WHERE id = ?", (nuevo_estado, incidencia_id))
+
+    if nuevo_estado.lower() == "cerrado":
+        fecha_cierre = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        cursor.execute("""
+            UPDATE incidencias
+            SET estado = ?, fecha_resolucion = ?
+            WHERE id = ?
+        """, (nuevo_estado, fecha_cierre, incidencia_id))
+    else:
+        # Si cambia a otro estado, borra la fecha de resolución
+        cursor.execute("""
+            UPDATE incidencias
+            SET estado = ?, fecha_resolucion = NULL
+            WHERE id = ?
+        """, (nuevo_estado, incidencia_id))
+
     conn.commit()
     conn.close()
 
+
+def get_datos_para_graficas(fecha_desde=None, fecha_hasta=None):
+    """Devuelve datos filtrados por fechas para generar gráficas."""
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    sql = """SELECT categoria, estado, fecha_creacion, fecha_resolucion
+             FROM incidencias WHERE 1=1"""
+    params = []
+
+    if fecha_desde:
+        sql += " AND date(fecha_creacion) >= date(?)"
+        params.append(fecha_desde)
+    if fecha_hasta:
+        sql += " AND date(fecha_creacion) <= date(?)"
+        params.append(fecha_hasta)
+
+    cursor.execute(sql, params)
+    data = cursor.fetchall()
+    conn.close()
+    return data
